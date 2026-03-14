@@ -18,3 +18,13 @@ C:\Users\natha\Documents\CCS Classes\Masters Files\IS1\ImageProcessing\ImageProc
 C:\Users\natha\Documents\CCS Classes\Masters Files\IS1\ImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.csproj.CoreCompileInputs.cache
 C:\Users\natha\Documents\CCS Classes\Masters Files\IS1\ImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.exe
 C:\Users\natha\Documents\CCS Classes\Masters Files\IS1\ImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.pdb
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\bin\Debug\ImageProcessing.exe.config
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\bin\Debug\ImageProcessing.exe
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\bin\Debug\ImageProcessing.pdb
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.csproj.AssemblyReference.cache
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.Form1.resources
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.Properties.Resources.resources
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.csproj.GenerateResource.cache
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.csproj.CoreCompileInputs.cache
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.exe
+E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.pdb

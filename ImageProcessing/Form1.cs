@@ -175,6 +175,11 @@ namespace ImageProcessing
         private void Form1_Load(object sender, EventArgs e)
         {
             myDevice = DeviceManager.GetAllDevices();
+
+            if (myDevice.Length == 0)
+            {
+                MessageBox.Show("No webcam found");
+            }
         }
 
         private void oNToolStripMenuItem_Click(object sender, EventArgs e)

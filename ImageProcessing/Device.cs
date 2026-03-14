@@ -57,8 +57,10 @@ namespace WebCamLib
         }
 
         private string _name;
-		
-		public string Name
+
+        private const int WM_CAP_DLG_VIDEOFORMAT = WM_CAP + 41;
+
+        public string Name
         {
             get { return _name; }
             set { _name = value; }
@@ -89,6 +91,7 @@ namespace WebCamLib
 
             if (SendMessage(deviceHandle, WM_CAP_DRIVER_CONNECT, this.index, 0) > 0)
             {
+                SendMessage(deviceHandle, WM_CAP_DLG_VIDEOFORMAT, 0, 0);
                 SendMessage(deviceHandle, WM_CAP_SET_SCALE, -1, 0);
 			    SendMessage(deviceHandle, WM_CAP_SET_PREVIEWRATE, 0x42, 0);
                 SendMessage(deviceHandle, WM_CAP_SET_PREVIEW, -1, 0);

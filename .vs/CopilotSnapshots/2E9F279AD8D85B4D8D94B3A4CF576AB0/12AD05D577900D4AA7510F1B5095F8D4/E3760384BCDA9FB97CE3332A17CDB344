@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ImageProcessing
+{
+    public partial class Form1 : Form
+    {
+        Bitmap source, result;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void loadImageToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+        }
+
+        private void pixelCopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            result = new Bitmap(source.Width, source.Height);
+            for (int x = 0; x < source.Width; x++)
+            {
+                for (int y = 0; y < source.Height; y++)
+                {
+                    Color color = source.GetPixel(x, y);
+                    result.SetPixel(x, y, color);
+                }
+            }
+
+            pictureBox2.Image = result;
+        }
+
+        private void greyScaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            result = new Bitmap(source.Width, source.Height);
+            for (int x = 0; x < source.Width; x++)
+            {
+                for (int y = 0; y < source.Height; y++)
+                {
+                    Color pixel = source.GetPixel(x, y);
+                    byte grey = (byte)(pixel.R + pixel.G + pixel.B);
+
+                    result.SetPixel(x, y, Color.FromArgb(grey, grey, grey));
+                }
+            }
+
+            pictureBox2.Image = result;
+        }
+
+        private void inversionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            result = new Bitmap(source.Width, source.Height);
+            for (int x = 0; x < source.Width; x++)
+            {
+                for (int y = 0; y < source.Height; y++)
+                {
+                    Color pixel = source.GetPixel(x, y);
+                    byte grey = (byte)(pixel.R + pixel.G + pixel.B);
+
+                    result.SetPixel(x, y, Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B));
+
+                }
+            }
+
+            pictureBox2.Image = result;
+        }
+
+        private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.ShowDialog();
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            result.Save(saveFileDialog1.FileName);
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            source = new Bitmap(openFileDialog1.FileName);
+            pictureBox1.Image = source;
+        }
+    }
+}

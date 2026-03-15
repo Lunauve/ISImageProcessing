@@ -28,3 +28,13 @@ E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcess
 E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.csproj.CoreCompileInputs.cache
 E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.exe
 E:\ArbastoImageProcessing\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.pdb
+F:\ImageProcessing\ImageProcessing\bin\Debug\ImageProcessing.exe.config
+F:\ImageProcessing\ImageProcessing\bin\Debug\ImageProcessing.exe
+F:\ImageProcessing\ImageProcessing\bin\Debug\ImageProcessing.pdb
+F:\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.csproj.AssemblyReference.cache
+F:\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.Form1.resources
+F:\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.Properties.Resources.resources
+F:\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.csproj.GenerateResource.cache
+F:\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.csproj.CoreCompileInputs.cache
+F:\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.exe
+F:\ImageProcessing\ImageProcessing\obj\Debug\ImageProcessing.pdb

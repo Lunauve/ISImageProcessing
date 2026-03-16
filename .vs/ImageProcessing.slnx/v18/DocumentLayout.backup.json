@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "F:\\ImageProcessing\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "ImageProcessing\\Form1.cs",
               "ToolTip": "F:\\ImageProcessing\\ImageProcessing\\Form1.cs",
               "RelativeToolTip": "ImageProcessing\\Form1.cs",
-              "ViewState": "AgIAALYAAAAAAAAAAAAUwMkAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAALYAAAAAAAAAAAAUwMoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T01:54:54.977Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "ImageProcessing\\Device.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAYwE4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-14T14:34:33.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-14T14:34:33.398Z"
             }
           ]
         },
@@ -86,8 +85,7 @@
               "RelativeToolTip": "ImageProcessing\\Form1.Designer.cs",
               "ViewState": "AgIAAO0AAAAAAAAAAAASwAABAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T01:57:52.813Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-21T01:57:52.813Z"
             },
             {
               "$type": "Document",
@@ -99,8 +97,7 @@
               "RelativeToolTip": "ImageProcessing\\DeviceManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T01:12:03.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-07T01:12:03.06Z"
             }
           ]
         }

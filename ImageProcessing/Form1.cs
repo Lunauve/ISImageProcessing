@@ -187,6 +187,10 @@ namespace ImageProcessing
             brightnessLabel.Visible = false;
             brightnessTrackBar.Visible = false;
 
+            //for contrast components
+            contrastLabel.Visible = false;
+            contrastTrackBar.Visible = false;
+
             myDevice = DeviceManager.GetAllDevices();
 
             if (myDevice.Length == 0)
@@ -211,6 +215,7 @@ namespace ImageProcessing
             gamma.Stop();
             invert.Stop();
             brightness.Stop();
+            contrast.Stop();
 
             //for gamma components
             gammaLabel.Visible = false;
@@ -227,6 +232,10 @@ namespace ImageProcessing
             //for brightness components
             brightnessLabel.Visible = false;
             brightnessTrackBar.Visible = false;
+
+            //for contrast components
+            contrastLabel.Visible = false;
+            contrastTrackBar.Visible = false;
 
             pictureBox2.Image = null;
 
@@ -325,6 +334,8 @@ namespace ImageProcessing
             b = new Bitmap(bmap);
 
             BitmapFilter.Invert(b);
+
+            pictureBox2.Image = b;
         }
 
         private void invert_on_Click(object sender, EventArgs e)
@@ -349,20 +360,52 @@ namespace ImageProcessing
             b = new Bitmap(bmap);
 
             BitmapFilter.Brightness(b, brightnessTrackBar.Value);
+
+            pictureBox2.Image = b;
         }
 
-        private void oNToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void brightness_On_Click(object sender, EventArgs e)
         {
             StartTimer(brightness);
             brightnessLabel.Visible = true;
             brightnessTrackBar.Visible = true;
         }
 
-        private void oFFToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void brightness_Off_Click(object sender, EventArgs e)
         {
             brightness.Stop();
             brightnessLabel.Visible = false;
             brightnessTrackBar.Visible = false;
+
+            pictureBox2.Image = null;
+        }
+
+        private void contrast_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            BitmapFilter.Contrast(b, (sbyte)contrastTrackBar.Value);
+
+            pictureBox2.Image = b;
+        }
+
+        private void contrast_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(contrast);
+            contrastLabel.Visible = true;
+            contrastTrackBar.Visible = true;
+        }
+
+        private void contrast_off_Click(object sender, EventArgs e)
+        {
+            contrast.Stop();
+            contrastLabel.Visible = false;
+            contrastTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }

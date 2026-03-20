@@ -174,6 +174,15 @@ namespace ImageProcessing
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //for gamma components
+            gammaLabel.Visible = false;
+            redLabel.Visible = false;
+            greenLabel.Visible = false;
+            blueLabel.Visible = false;
+            redUpDown1.Visible = false;
+            greenUpDown1.Visible = false;
+            blueUpDown1.Visible = false;
+
             myDevice = DeviceManager.GetAllDevices();
 
             if (myDevice.Length == 0)
@@ -192,7 +201,25 @@ namespace ImageProcessing
             myDevice[0].Stop();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void StartTimer(Timer timerToStart)
+        {
+            greyscale.Stop();
+            gamma.Stop();
+            invert.Stop();
+
+            pictureBox2.Image = null;
+
+            // clear bitmap reference
+            if (b != null)
+            {
+                b.Dispose();
+                b = null;
+            }
+
+            timerToStart.Start();
+        }
+
+        private void grayscale_Tick(object sender, EventArgs e)
         {
             IDataObject data;
             Image bmap;
@@ -207,14 +234,76 @@ namespace ImageProcessing
             pictureBox2.Image = b;
         }
 
-        private void oNToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void oNGrey_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            StartTimer(greyscale);
         }
 
-        private void oFFToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void oFFggrey_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
+            greyscale.Stop();
+
+            pictureBox2.Image = null;
+        }
+
+        private void gamma_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(gamma);
+            gammaLabel.Visible = true;
+            redLabel.Visible = true;
+            greenLabel.Visible = true;
+            blueLabel.Visible = true;
+            redUpDown1.Visible = true;
+            greenUpDown1.Visible = true;
+            blueUpDown1.Visible = true;
+        }
+
+        private void gamma_off_Click(object sender, EventArgs e)
+        {
+            gamma.Stop();
+
+            gammaLabel.Visible = false;
+            redLabel.Visible = false;
+            greenLabel.Visible = false;
+            blueLabel.Visible = false;
+            redUpDown1.Visible = false;
+            greenUpDown1.Visible = false;
+            blueUpDown1.Visible = false;
+            redUpDown1.Value = redUpDown1.Minimum;
+            greenUpDown1.Value = greenUpDown1.Minimum;
+            blueUpDown1.Value = blueUpDown1.Minimum;
+
+            pictureBox2.Image = null;
+        }
+
+        private void gamma_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            BitmapFilter.Gamma(
+                b,
+                (double)redUpDown1.Value,
+                (double)greenUpDown1.Value,
+                (double)blueUpDown1.Value);
+
+            pictureBox2.Image = b;
+        }
+
+        private void invert_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            BitmapFilter.Invert(b);
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

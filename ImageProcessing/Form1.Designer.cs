@@ -80,6 +80,10 @@
             this.redLabel = new System.Windows.Forms.Label();
             this.greenLabel = new System.Windows.Forms.Label();
             this.blueLabel = new System.Windows.Forms.Label();
+            this.oNToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.oFFToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.brightnessTrackBar = new System.Windows.Forms.TrackBar();
+            this.brightnessLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -87,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.redUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -257,6 +262,9 @@
             // 
             // brightnessToolStripMenuItem
             // 
+            this.brightnessToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oNToolStripMenuItem1,
+            this.oFFToolStripMenuItem1});
             this.brightnessToolStripMenuItem.Name = "brightnessToolStripMenuItem";
             this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.brightnessToolStripMenuItem.Text = "Brightness";
@@ -360,12 +368,14 @@
             this.invert_on.Name = "invert_on";
             this.invert_on.Size = new System.Drawing.Size(180, 22);
             this.invert_on.Text = "ON";
+            this.invert_on.Click += new System.EventHandler(this.invert_on_Click);
             // 
             // invert_off
             // 
             this.invert_off.Name = "invert_off";
             this.invert_off.Size = new System.Drawing.Size(180, 22);
             this.invert_off.Text = "OFF";
+            this.invert_off.Click += new System.EventHandler(this.invert_off_Click);
             // 
             // gamma
             // 
@@ -374,6 +384,10 @@
             // invert
             // 
             this.invert.Tick += new System.EventHandler(this.invert_Tick);
+            // 
+            // brightness
+            // 
+            this.brightness.Tick += new System.EventHandler(this.brightness_Tick);
             // 
             // redUpDown1
             // 
@@ -495,11 +509,46 @@
             this.blueLabel.TabIndex = 10;
             this.blueLabel.Text = "Blue";
             // 
+            // oNToolStripMenuItem1
+            // 
+            this.oNToolStripMenuItem1.Name = "oNToolStripMenuItem1";
+            this.oNToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.oNToolStripMenuItem1.Text = "ON";
+            this.oNToolStripMenuItem1.Click += new System.EventHandler(this.oNToolStripMenuItem1_Click);
+            // 
+            // oFFToolStripMenuItem1
+            // 
+            this.oFFToolStripMenuItem1.Name = "oFFToolStripMenuItem1";
+            this.oFFToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.oFFToolStripMenuItem1.Text = "OFF";
+            this.oFFToolStripMenuItem1.Click += new System.EventHandler(this.oFFToolStripMenuItem1_Click);
+            // 
+            // brightnessTrackBar
+            // 
+            this.brightnessTrackBar.Location = new System.Drawing.Point(34, 436);
+            this.brightnessTrackBar.Margin = new System.Windows.Forms.Padding(2);
+            this.brightnessTrackBar.Maximum = 255;
+            this.brightnessTrackBar.Minimum = -255;
+            this.brightnessTrackBar.Name = "brightnessTrackBar";
+            this.brightnessTrackBar.Size = new System.Drawing.Size(400, 45);
+            this.brightnessTrackBar.TabIndex = 11;
+            // 
+            // brightnessLabel
+            // 
+            this.brightnessLabel.AutoSize = true;
+            this.brightnessLabel.Location = new System.Drawing.Point(40, 421);
+            this.brightnessLabel.Name = "brightnessLabel";
+            this.brightnessLabel.Size = new System.Drawing.Size(56, 13);
+            this.brightnessLabel.TabIndex = 12;
+            this.brightnessLabel.Text = "Brightness";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 486);
+            this.Controls.Add(this.brightnessLabel);
+            this.Controls.Add(this.brightnessTrackBar);
             this.Controls.Add(this.blueLabel);
             this.Controls.Add(this.greenLabel);
             this.Controls.Add(this.redLabel);
@@ -525,6 +574,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.redUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,6 +632,10 @@
         private System.Windows.Forms.Label redLabel;
         private System.Windows.Forms.Label greenLabel;
         private System.Windows.Forms.Label blueLabel;
+        private System.Windows.Forms.ToolStripMenuItem oNToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem oFFToolStripMenuItem1;
+        private System.Windows.Forms.TrackBar brightnessTrackBar;
+        private System.Windows.Forms.Label brightnessLabel;
     }
 }
 

@@ -183,6 +183,10 @@ namespace ImageProcessing
             greenUpDown1.Visible = false;
             blueUpDown1.Visible = false;
 
+            //for brightness components
+            brightnessLabel.Visible = false;
+            brightnessTrackBar.Visible = false;
+
             myDevice = DeviceManager.GetAllDevices();
 
             if (myDevice.Length == 0)
@@ -206,6 +210,23 @@ namespace ImageProcessing
             greyscale.Stop();
             gamma.Stop();
             invert.Stop();
+            brightness.Stop();
+
+            //for gamma components
+            gammaLabel.Visible = false;
+            redLabel.Visible = false;
+            greenLabel.Visible = false;
+            blueLabel.Visible = false;
+            redUpDown1.Visible = false;
+            greenUpDown1.Visible = false;
+            blueUpDown1.Visible = false;
+            redUpDown1.Value = redUpDown1.Minimum;
+            greenUpDown1.Value = greenUpDown1.Minimum;
+            blueUpDown1.Value = blueUpDown1.Minimum;
+
+            //for brightness components
+            brightnessLabel.Visible = false;
+            brightnessTrackBar.Visible = false;
 
             pictureBox2.Image = null;
 
@@ -304,6 +325,46 @@ namespace ImageProcessing
             b = new Bitmap(bmap);
 
             BitmapFilter.Invert(b);
+        }
+
+        private void invert_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(invert);
+        }
+
+        private void invert_off_Click(object sender, EventArgs e)
+        {
+            invert.Stop();
+
+            pictureBox2.Image = null;
+        }
+
+        private void brightness_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            BitmapFilter.Brightness(b, brightnessTrackBar.Value);
+        }
+
+        private void oNToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            StartTimer(brightness);
+            brightnessLabel.Visible = true;
+            brightnessTrackBar.Visible = true;
+        }
+
+        private void oFFToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            brightness.Stop();
+            brightnessLabel.Visible = false;
+            brightnessTrackBar.Visible = false;
+
+            pictureBox2.Image = null;
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

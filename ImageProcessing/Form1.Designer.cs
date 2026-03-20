@@ -80,10 +80,14 @@
             this.redLabel = new System.Windows.Forms.Label();
             this.greenLabel = new System.Windows.Forms.Label();
             this.blueLabel = new System.Windows.Forms.Label();
-            this.oNToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.oFFToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.brightness_on = new System.Windows.Forms.ToolStripMenuItem();
+            this.brightness_off = new System.Windows.Forms.ToolStripMenuItem();
             this.brightnessTrackBar = new System.Windows.Forms.TrackBar();
             this.brightnessLabel = new System.Windows.Forms.Label();
+            this.contrastTrackBar = new System.Windows.Forms.TrackBar();
+            this.contrast_on = new System.Windows.Forms.ToolStripMenuItem();
+            this.contrast_off = new System.Windows.Forms.ToolStripMenuItem();
+            this.contrastLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -92,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.greenUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contrastTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -263,14 +268,17 @@
             // brightnessToolStripMenuItem
             // 
             this.brightnessToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.oNToolStripMenuItem1,
-            this.oFFToolStripMenuItem1});
+            this.brightness_on,
+            this.brightness_off});
             this.brightnessToolStripMenuItem.Name = "brightnessToolStripMenuItem";
             this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.brightnessToolStripMenuItem.Text = "Brightness";
             // 
             // contrastToolStripMenuItem
             // 
+            this.contrastToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contrast_on,
+            this.contrast_off});
             this.contrastToolStripMenuItem.Name = "contrastToolStripMenuItem";
             this.contrastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contrastToolStripMenuItem.Text = "Contrast";
@@ -388,6 +396,10 @@
             // brightness
             // 
             this.brightness.Tick += new System.EventHandler(this.brightness_Tick);
+            // 
+            // contrast
+            // 
+            this.contrast.Tick += new System.EventHandler(this.contrast_Tick);
             // 
             // redUpDown1
             // 
@@ -509,19 +521,19 @@
             this.blueLabel.TabIndex = 10;
             this.blueLabel.Text = "Blue";
             // 
-            // oNToolStripMenuItem1
+            // brightness_on
             // 
-            this.oNToolStripMenuItem1.Name = "oNToolStripMenuItem1";
-            this.oNToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.oNToolStripMenuItem1.Text = "ON";
-            this.oNToolStripMenuItem1.Click += new System.EventHandler(this.oNToolStripMenuItem1_Click);
+            this.brightness_on.Name = "brightness_on";
+            this.brightness_on.Size = new System.Drawing.Size(180, 22);
+            this.brightness_on.Text = "ON";
+            this.brightness_on.Click += new System.EventHandler(this.brightness_On_Click);
             // 
-            // oFFToolStripMenuItem1
+            // brightness_off
             // 
-            this.oFFToolStripMenuItem1.Name = "oFFToolStripMenuItem1";
-            this.oFFToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.oFFToolStripMenuItem1.Text = "OFF";
-            this.oFFToolStripMenuItem1.Click += new System.EventHandler(this.oFFToolStripMenuItem1_Click);
+            this.brightness_off.Name = "brightness_off";
+            this.brightness_off.Size = new System.Drawing.Size(180, 22);
+            this.brightness_off.Text = "OFF";
+            this.brightness_off.Click += new System.EventHandler(this.brightness_Off_Click);
             // 
             // brightnessTrackBar
             // 
@@ -542,11 +554,46 @@
             this.brightnessLabel.TabIndex = 12;
             this.brightnessLabel.Text = "Brightness";
             // 
+            // contrastTrackBar
+            // 
+            this.contrastTrackBar.Location = new System.Drawing.Point(34, 436);
+            this.contrastTrackBar.Margin = new System.Windows.Forms.Padding(2);
+            this.contrastTrackBar.Maximum = 100;
+            this.contrastTrackBar.Minimum = -100;
+            this.contrastTrackBar.Name = "contrastTrackBar";
+            this.contrastTrackBar.Size = new System.Drawing.Size(400, 45);
+            this.contrastTrackBar.TabIndex = 13;
+            // 
+            // contrast_on
+            // 
+            this.contrast_on.Name = "contrast_on";
+            this.contrast_on.Size = new System.Drawing.Size(180, 22);
+            this.contrast_on.Text = "ON";
+            this.contrast_on.Click += new System.EventHandler(this.contrast_on_Click);
+            // 
+            // contrast_off
+            // 
+            this.contrast_off.Name = "contrast_off";
+            this.contrast_off.Size = new System.Drawing.Size(180, 22);
+            this.contrast_off.Text = "OFF";
+            this.contrast_off.Click += new System.EventHandler(this.contrast_off_Click);
+            // 
+            // contrastLabel
+            // 
+            this.contrastLabel.AutoSize = true;
+            this.contrastLabel.Location = new System.Drawing.Point(40, 421);
+            this.contrastLabel.Name = "contrastLabel";
+            this.contrastLabel.Size = new System.Drawing.Size(46, 13);
+            this.contrastLabel.TabIndex = 14;
+            this.contrastLabel.Text = "Contrast";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 486);
+            this.Controls.Add(this.contrastLabel);
+            this.Controls.Add(this.contrastTrackBar);
             this.Controls.Add(this.brightnessLabel);
             this.Controls.Add(this.brightnessTrackBar);
             this.Controls.Add(this.blueLabel);
@@ -575,6 +622,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.greenUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contrastTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,10 +680,14 @@
         private System.Windows.Forms.Label redLabel;
         private System.Windows.Forms.Label greenLabel;
         private System.Windows.Forms.Label blueLabel;
-        private System.Windows.Forms.ToolStripMenuItem oNToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem oFFToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem brightness_on;
+        private System.Windows.Forms.ToolStripMenuItem brightness_off;
         private System.Windows.Forms.TrackBar brightnessTrackBar;
         private System.Windows.Forms.Label brightnessLabel;
+        private System.Windows.Forms.TrackBar contrastTrackBar;
+        private System.Windows.Forms.ToolStripMenuItem contrast_on;
+        private System.Windows.Forms.ToolStripMenuItem contrast_off;
+        private System.Windows.Forms.Label contrastLabel;
     }
 }
 

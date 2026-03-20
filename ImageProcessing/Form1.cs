@@ -191,6 +191,10 @@ namespace ImageProcessing
             contrastLabel.Visible = false;
             contrastTrackBar.Visible = false;
 
+            //for smoothness components
+            smoothLabel.Visible = false;
+            smoothTrackBar.Visible = false;
+
             myDevice = DeviceManager.GetAllDevices();
 
             if (myDevice.Length == 0)
@@ -216,6 +220,7 @@ namespace ImageProcessing
             invert.Stop();
             brightness.Stop();
             contrast.Stop();
+            smooth.Stop();
 
             //for gamma components
             gammaLabel.Visible = false;
@@ -236,6 +241,10 @@ namespace ImageProcessing
             //for contrast components
             contrastLabel.Visible = false;
             contrastTrackBar.Visible = false;
+
+            //for smoothness components
+            smoothLabel.Visible = false;
+            smoothTrackBar.Visible = false;
 
             pictureBox2.Image = null;
 
@@ -406,6 +415,40 @@ namespace ImageProcessing
             contrast.Stop();
             contrastLabel.Visible = false;
             contrastTrackBar.Visible = false;
+
+            pictureBox2.Image = null;
+        }
+
+        private void smooth_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            //apply 10 passes for smoothness
+            for (int i = 0; i < smoothTrackBar.Value; i++)
+            {
+                BitmapFilter.Smooth(b, 1);
+            }
+
+            pictureBox2.Image = b;
+        }
+
+        private void smooth_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(smooth);
+            smoothLabel.Visible = true;
+            smoothTrackBar.Visible = true;
+        }
+
+        private void smooth_off_Click(object sender, EventArgs e)
+        {
+            smooth.Stop();
+            smoothLabel.Visible = false;
+            smoothTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }

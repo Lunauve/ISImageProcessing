@@ -88,6 +88,10 @@
             this.contrast_on = new System.Windows.Forms.ToolStripMenuItem();
             this.contrast_off = new System.Windows.Forms.ToolStripMenuItem();
             this.contrastLabel = new System.Windows.Forms.Label();
+            this.smooth_on = new System.Windows.Forms.ToolStripMenuItem();
+            this.smooth_off = new System.Windows.Forms.ToolStripMenuItem();
+            this.smoothTrackBar = new System.Windows.Forms.TrackBar();
+            this.smoothLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -97,6 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.blueUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contrastTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smoothTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -285,6 +290,9 @@
             // 
             // smoothToolStripMenuItem
             // 
+            this.smoothToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smooth_on,
+            this.smooth_off});
             this.smoothToolStripMenuItem.Name = "smoothToolStripMenuItem";
             this.smoothToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smoothToolStripMenuItem.Text = "Smooth";
@@ -400,6 +408,10 @@
             // contrast
             // 
             this.contrast.Tick += new System.EventHandler(this.contrast_Tick);
+            // 
+            // smooth
+            // 
+            this.smooth.Tick += new System.EventHandler(this.smooth_Tick);
             // 
             // redUpDown1
             // 
@@ -587,11 +599,47 @@
             this.contrastLabel.TabIndex = 14;
             this.contrastLabel.Text = "Contrast";
             // 
+            // smooth_on
+            // 
+            this.smooth_on.Name = "smooth_on";
+            this.smooth_on.Size = new System.Drawing.Size(180, 22);
+            this.smooth_on.Text = "ON";
+            this.smooth_on.Click += new System.EventHandler(this.smooth_on_Click);
+            // 
+            // smooth_off
+            // 
+            this.smooth_off.Name = "smooth_off";
+            this.smooth_off.Size = new System.Drawing.Size(180, 22);
+            this.smooth_off.Text = "OFF";
+            this.smooth_off.Click += new System.EventHandler(this.smooth_off_Click);
+            // 
+            // smoothTrackBar
+            // 
+            this.smoothTrackBar.Location = new System.Drawing.Point(34, 430);
+            this.smoothTrackBar.Margin = new System.Windows.Forms.Padding(2);
+            this.smoothTrackBar.Maximum = 20;
+            this.smoothTrackBar.Minimum = 1;
+            this.smoothTrackBar.Name = "smoothTrackBar";
+            this.smoothTrackBar.Size = new System.Drawing.Size(400, 45);
+            this.smoothTrackBar.TabIndex = 15;
+            this.smoothTrackBar.Value = 1;
+            // 
+            // smoothLabel
+            // 
+            this.smoothLabel.AutoSize = true;
+            this.smoothLabel.Location = new System.Drawing.Point(40, 421);
+            this.smoothLabel.Name = "smoothLabel";
+            this.smoothLabel.Size = new System.Drawing.Size(65, 13);
+            this.smoothLabel.TabIndex = 16;
+            this.smoothLabel.Text = "Smoothness";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 486);
+            this.Controls.Add(this.smoothLabel);
+            this.Controls.Add(this.smoothTrackBar);
             this.Controls.Add(this.contrastLabel);
             this.Controls.Add(this.contrastTrackBar);
             this.Controls.Add(this.brightnessLabel);
@@ -623,6 +671,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.blueUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contrastTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smoothTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -688,6 +737,10 @@
         private System.Windows.Forms.ToolStripMenuItem contrast_on;
         private System.Windows.Forms.ToolStripMenuItem contrast_off;
         private System.Windows.Forms.Label contrastLabel;
+        private System.Windows.Forms.ToolStripMenuItem smooth_on;
+        private System.Windows.Forms.ToolStripMenuItem smooth_off;
+        private System.Windows.Forms.TrackBar smoothTrackBar;
+        private System.Windows.Forms.Label smoothLabel;
     }
 }
 

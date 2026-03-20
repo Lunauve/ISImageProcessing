@@ -176,12 +176,12 @@ namespace ImageProcessing
         {
             //for gamma components
             gammaLabel.Visible = false;
-            redLabel.Visible = false;
-            greenLabel.Visible = false;
-            blueLabel.Visible = false;
-            redUpDown1.Visible = false;
-            greenUpDown1.Visible = false;
-            blueUpDown1.Visible = false;
+            gammaRedLabel.Visible = false;
+            gammaGreenLabel.Visible = false;
+            gammaBlueLabel.Visible = false;
+            gammaRedUpDown.Visible = false;
+            gammaGreenUpDown.Visible = false;
+            gammaBlueUpDown.Visible = false;
 
             //for brightness components
             brightnessLabel.Visible = false;
@@ -190,6 +190,30 @@ namespace ImageProcessing
             //for contrast components
             contrastLabel.Visible = false;
             contrastTrackBar.Visible = false;
+
+            //for smoothness components
+            smoothLabel.Visible = false;
+            smoothTrackBar.Visible = false;
+
+            //for gauss components
+            gaussLabel.Visible = false;
+            gaussTrackBar.Visible = false;
+
+            //for sharpen components
+            sharpLabel.Visible = false;
+            sharpTrackBar.Visible = false;
+
+            //for color components
+            colorLabel.Visible = false;
+            colorRedLabel.Visible = false;
+            colorGreenLabel.Visible = false;
+            colorBlueLabel.Visible = false;
+            colorRedTrackBar.Visible = false;
+            colorGreenTrackBar.Visible = false;
+            colorBlueTrackBar.Visible = false;
+            colorRedTrackBar.Value = 0;
+            colorGreenTrackBar.Value = 0;
+            colorBlueTrackBar.Value = 0;
 
             myDevice = DeviceManager.GetAllDevices();
 
@@ -215,19 +239,23 @@ namespace ImageProcessing
             gamma.Stop();
             invert.Stop();
             brightness.Stop();
+            color.Stop();
             contrast.Stop();
+            smooth.Stop();
+            gaussian.Stop();
+            sharpen.Stop();
 
             //for gamma components
             gammaLabel.Visible = false;
-            redLabel.Visible = false;
-            greenLabel.Visible = false;
-            blueLabel.Visible = false;
-            redUpDown1.Visible = false;
-            greenUpDown1.Visible = false;
-            blueUpDown1.Visible = false;
-            redUpDown1.Value = redUpDown1.Minimum;
-            greenUpDown1.Value = greenUpDown1.Minimum;
-            blueUpDown1.Value = blueUpDown1.Minimum;
+            gammaRedLabel.Visible = false;
+            gammaGreenLabel.Visible = false;
+            gammaBlueLabel.Visible = false;
+            gammaRedUpDown.Visible = false;
+            gammaGreenUpDown.Visible = false;
+            gammaBlueUpDown.Visible = false;
+            gammaRedUpDown.Value = gammaRedUpDown.Minimum;
+            gammaGreenUpDown.Value = gammaGreenUpDown.Minimum;
+            gammaBlueUpDown.Value = gammaBlueUpDown.Minimum;
 
             //for brightness components
             brightnessLabel.Visible = false;
@@ -236,6 +264,30 @@ namespace ImageProcessing
             //for contrast components
             contrastLabel.Visible = false;
             contrastTrackBar.Visible = false;
+
+            //for smoothness components
+            smoothLabel.Visible = false;
+            smoothTrackBar.Visible = false;
+
+            //for gauss components
+            gaussLabel.Visible = false;
+            gaussTrackBar.Visible = false;
+
+            //for sharpen components
+            sharpLabel.Visible = false;
+            sharpTrackBar.Visible = false;
+
+            //for color components
+            colorLabel.Visible = false;
+            colorRedLabel.Visible = false;
+            colorGreenLabel.Visible = false;
+            colorBlueLabel.Visible = false;
+            colorRedTrackBar.Visible = false;
+            colorGreenTrackBar.Visible = false;
+            colorBlueTrackBar.Visible = false;
+            colorRedTrackBar.Value = 0;
+            colorGreenTrackBar.Value = 0;
+            colorBlueTrackBar.Value = 0;
 
             pictureBox2.Image = null;
 
@@ -280,12 +332,12 @@ namespace ImageProcessing
         {
             StartTimer(gamma);
             gammaLabel.Visible = true;
-            redLabel.Visible = true;
-            greenLabel.Visible = true;
-            blueLabel.Visible = true;
-            redUpDown1.Visible = true;
-            greenUpDown1.Visible = true;
-            blueUpDown1.Visible = true;
+            gammaRedLabel.Visible = true;
+            gammaGreenLabel.Visible = true;
+            gammaBlueLabel.Visible = true;
+            gammaRedUpDown.Visible = true;
+            gammaGreenUpDown.Visible = true;
+            gammaBlueUpDown.Visible = true;
         }
 
         private void gamma_off_Click(object sender, EventArgs e)
@@ -293,15 +345,15 @@ namespace ImageProcessing
             gamma.Stop();
 
             gammaLabel.Visible = false;
-            redLabel.Visible = false;
-            greenLabel.Visible = false;
-            blueLabel.Visible = false;
-            redUpDown1.Visible = false;
-            greenUpDown1.Visible = false;
-            blueUpDown1.Visible = false;
-            redUpDown1.Value = redUpDown1.Minimum;
-            greenUpDown1.Value = greenUpDown1.Minimum;
-            blueUpDown1.Value = blueUpDown1.Minimum;
+            gammaRedLabel.Visible = false;
+            gammaGreenLabel.Visible = false;
+            gammaBlueLabel.Visible = false;
+            gammaRedUpDown.Visible = false;
+            gammaGreenUpDown.Visible = false;
+            gammaBlueUpDown.Visible = false;
+            gammaRedUpDown.Value = gammaRedUpDown.Minimum;
+            gammaGreenUpDown.Value = gammaGreenUpDown.Minimum;
+            gammaBlueUpDown.Value = gammaBlueUpDown.Minimum;
 
             pictureBox2.Image = null;
         }
@@ -317,9 +369,9 @@ namespace ImageProcessing
 
             BitmapFilter.Gamma(
                 b,
-                (double)redUpDown1.Value,
-                (double)greenUpDown1.Value,
-                (double)blueUpDown1.Value);
+                (double)gammaRedUpDown.Value,
+                (double)gammaGreenUpDown.Value,
+                (double)gammaBlueUpDown.Value);
 
             pictureBox2.Image = b;
         }
@@ -406,6 +458,155 @@ namespace ImageProcessing
             contrast.Stop();
             contrastLabel.Visible = false;
             contrastTrackBar.Visible = false;
+
+            pictureBox2.Image = null;
+        }
+
+        private void smooth_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            //apply 10 passes for smoothness
+            for (int i = 0; i < smoothTrackBar.Value; i++)
+            {
+                BitmapFilter.Smooth(b, 1);
+            }
+
+            pictureBox2.Image = b;
+        }
+
+        private void smooth_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(smooth);
+            smoothLabel.Visible = true;
+            smoothTrackBar.Visible = true;
+        }
+
+        private void smooth_off_Click(object sender, EventArgs e)
+        {
+            smooth.Stop();
+            smoothLabel.Visible = false;
+            smoothTrackBar.Visible = false;
+
+            pictureBox2.Image = null;
+        }
+
+        private void gaussian_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            //apply 5 passes for gaussian blur
+            for (int i = 0; i < gaussTrackBar.Value; i++)
+            {
+                BitmapFilter.GaussianBlur(b, 1);
+            }
+
+            pictureBox2.Image = b;
+        }
+
+        private void gauss_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(gaussian);
+            gaussLabel.Visible = true;
+            gaussTrackBar.Visible = true;
+        }
+
+        private void gauss_off_Click(object sender, EventArgs e)
+        {
+            gaussian.Stop();
+            gaussLabel.Visible = false;
+            gaussTrackBar.Visible = false;
+
+            pictureBox2.Image = null;
+        }
+
+        private void sharpen_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            //apply 3 passes for sharpen
+            for (int i = 0; i < sharpTrackBar.Value; i++)
+            {
+                BitmapFilter.Sharpen(b, 11);
+            }
+
+            pictureBox2.Image = b;
+        }
+
+        private void sharp_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(sharpen);
+            sharpLabel.Visible = true;
+            sharpTrackBar.Visible = true;
+        }
+
+        private void sharp_off_Click(object sender, EventArgs e)
+        {
+            sharpen.Stop();
+            sharpLabel.Visible = false;
+            sharpTrackBar.Visible = false;
+
+            pictureBox2.Image = null;
+        }
+
+        private void color_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            BitmapFilter.Color(b,
+                colorRedTrackBar.Value,
+                colorGreenTrackBar.Value,
+                colorBlueTrackBar.Value);
+
+            pictureBox2.Image = b;
+        }
+
+        private void color_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(color);
+            colorLabel.Visible = true;
+            colorRedLabel.Visible = true;
+            colorGreenLabel.Visible = true;
+            colorBlueLabel.Visible = true;
+            colorRedTrackBar.Visible = true;
+            colorGreenTrackBar.Visible = true;
+            colorBlueTrackBar.Visible = true;
+        }
+
+        private void color_off_Click(object sender, EventArgs e)
+        {
+            color.Stop();
+
+            colorLabel.Visible = false;
+            colorRedLabel.Visible = false;
+            colorGreenLabel.Visible = false;
+            colorBlueLabel.Visible = false;
+            colorRedTrackBar.Visible = false;
+            colorGreenTrackBar.Visible = false;
+            colorBlueTrackBar.Visible = false;
+            colorRedTrackBar.Value = 0;
+            colorGreenTrackBar.Value = 0;
+            colorBlueTrackBar.Value = 0;
 
             pictureBox2.Image = null;
         }

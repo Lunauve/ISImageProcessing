@@ -124,6 +124,21 @@
             this.emboss = new System.Windows.Forms.Timer(this.components);
             this.meanTrackBar = new System.Windows.Forms.TrackBar();
             this.meanLabel = new System.Windows.Forms.Label();
+            this.horzVertz_on = new System.Windows.Forms.ToolStripMenuItem();
+            this.horzVertz_off = new System.Windows.Forms.ToolStripMenuItem();
+            this.horzVert = new System.Windows.Forms.Timer(this.components);
+            this.allDir_on = new System.Windows.Forms.ToolStripMenuItem();
+            this.allDir_off = new System.Windows.Forms.ToolStripMenuItem();
+            this.lossy_on = new System.Windows.Forms.ToolStripMenuItem();
+            this.lossy_off = new System.Windows.Forms.ToolStripMenuItem();
+            this.horizontal_on = new System.Windows.Forms.ToolStripMenuItem();
+            this.horizontal_off = new System.Windows.Forms.ToolStripMenuItem();
+            this.vertical_on = new System.Windows.Forms.ToolStripMenuItem();
+            this.vertical_off = new System.Windows.Forms.ToolStripMenuItem();
+            this.allDirection = new System.Windows.Forms.Timer(this.components);
+            this.lossy = new System.Windows.Forms.Timer(this.components);
+            this.horizontalOnly = new System.Windows.Forms.Timer(this.components);
+            this.verticalOnly = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -262,14 +277,14 @@
             // oNToolStripMenuItem
             // 
             this.oNToolStripMenuItem.Name = "oNToolStripMenuItem";
-            this.oNToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.oNToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oNToolStripMenuItem.Text = "ON";
             this.oNToolStripMenuItem.Click += new System.EventHandler(this.oNToolStripMenuItem_Click);
             // 
             // oFFToolStripMenuItem
             // 
             this.oFFToolStripMenuItem.Name = "oFFToolStripMenuItem";
-            this.oFFToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.oFFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oFFToolStripMenuItem.Text = "OFF";
             this.oFFToolStripMenuItem.Click += new System.EventHandler(this.oFFToolStripMenuItem_Click);
             // 
@@ -279,7 +294,7 @@
             this.grayscale_on,
             this.grayscale_off});
             this.greyToolStripMenuItem.Name = "greyToolStripMenuItem";
-            this.greyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.greyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.greyToolStripMenuItem.Text = "Greyscale";
             // 
             // grayscale_on
@@ -302,7 +317,7 @@
             this.gamma_on,
             this.gamma_off});
             this.gammaToolStripMenuItem.Name = "gammaToolStripMenuItem";
-            this.gammaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.gammaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gammaToolStripMenuItem.Text = "Gamma";
             // 
             // gamma_on
@@ -325,7 +340,7 @@
             this.invert_on,
             this.invert_off});
             this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
-            this.invertToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.invertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.invertToolStripMenuItem.Text = "Invert";
             // 
             // invert_on
@@ -348,7 +363,7 @@
             this.brightness_on,
             this.brightness_off});
             this.brightnessToolStripMenuItem.Name = "brightnessToolStripMenuItem";
-            this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.brightnessToolStripMenuItem.Text = "Brightness";
             // 
             // brightness_on
@@ -371,7 +386,7 @@
             this.contrast_on,
             this.contrast_off});
             this.contrastToolStripMenuItem.Name = "contrastToolStripMenuItem";
-            this.contrastToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.contrastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contrastToolStripMenuItem.Text = "Contrast";
             // 
             // contrast_on
@@ -394,7 +409,7 @@
             this.color_on,
             this.color_off});
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.colorToolStripMenuItem.Text = "Color";
             // 
             // color_on
@@ -417,7 +432,7 @@
             this.smooth_on,
             this.smooth_off});
             this.smoothToolStripMenuItem.Name = "smoothToolStripMenuItem";
-            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smoothToolStripMenuItem.Text = "Smooth";
             // 
             // smooth_on
@@ -440,7 +455,7 @@
             this.gauss_on,
             this.gauss_off});
             this.gaussianBlurToolStripMenuItem.Name = "gaussianBlurToolStripMenuItem";
-            this.gaussianBlurToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.gaussianBlurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gaussianBlurToolStripMenuItem.Text = "Gaussian Blur";
             // 
             // gauss_on
@@ -463,7 +478,7 @@
             this.sharp_on,
             this.sharp_off});
             this.sharpenToolStripMenuItem.Name = "sharpenToolStripMenuItem";
-            this.sharpenToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.sharpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sharpenToolStripMenuItem.Text = "Sharpen";
             // 
             // sharp_on
@@ -486,7 +501,7 @@
             this.mean_on,
             this.mean_off});
             this.meanRemovalToolStripMenuItem.Name = "meanRemovalToolStripMenuItem";
-            this.meanRemovalToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.meanRemovalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.meanRemovalToolStripMenuItem.Text = "Mean Removal";
             // 
             // mean_on
@@ -509,7 +524,7 @@
             this.emboss_on,
             this.emboss_off});
             this.embossLaplascianToolStripMenuItem.Name = "embossLaplascianToolStripMenuItem";
-            this.embossLaplascianToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.embossLaplascianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.embossLaplascianToolStripMenuItem.Text = "Emboss Laplascian";
             // 
             // emboss_on
@@ -528,32 +543,47 @@
             // 
             // horzVerticalToolStripMenuItem
             // 
+            this.horzVerticalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.horzVertz_on,
+            this.horzVertz_off});
             this.horzVerticalToolStripMenuItem.Name = "horzVerticalToolStripMenuItem";
-            this.horzVerticalToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.horzVerticalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.horzVerticalToolStripMenuItem.Text = "Horz/Vertical";
             // 
             // allDirectionToolStripMenuItem
             // 
+            this.allDirectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allDir_on,
+            this.allDir_off});
             this.allDirectionToolStripMenuItem.Name = "allDirectionToolStripMenuItem";
-            this.allDirectionToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.allDirectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.allDirectionToolStripMenuItem.Text = "All Direction";
             // 
             // lossyToolStripMenuItem
             // 
+            this.lossyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lossy_on,
+            this.lossy_off});
             this.lossyToolStripMenuItem.Name = "lossyToolStripMenuItem";
-            this.lossyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.lossyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lossyToolStripMenuItem.Text = "Lossy";
             // 
             // horizontalOnlyToolStripMenuItem
             // 
+            this.horizontalOnlyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.horizontal_on,
+            this.horizontal_off});
             this.horizontalOnlyToolStripMenuItem.Name = "horizontalOnlyToolStripMenuItem";
-            this.horizontalOnlyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.horizontalOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.horizontalOnlyToolStripMenuItem.Text = "Horizontal Only";
             // 
             // verticalOnlyToolStripMenuItem
             // 
+            this.verticalOnlyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vertical_on,
+            this.vertical_off});
             this.verticalOnlyToolStripMenuItem.Name = "verticalOnlyToolStripMenuItem";
-            this.verticalOnlyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.verticalOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verticalOnlyToolStripMenuItem.Text = "Vertical Only";
             // 
             // pictureBox1
@@ -946,6 +976,78 @@
             this.meanLabel.TabIndex = 29;
             this.meanLabel.Text = "Mean Removal";
             // 
+            // horzVertz_on
+            // 
+            this.horzVertz_on.Name = "horzVertz_on";
+            this.horzVertz_on.Size = new System.Drawing.Size(180, 22);
+            this.horzVertz_on.Text = "ON";
+            this.horzVertz_on.Click += new System.EventHandler(this.oNToolStripMenuItem1_Click);
+            // 
+            // horzVertz_off
+            // 
+            this.horzVertz_off.Name = "horzVertz_off";
+            this.horzVertz_off.Size = new System.Drawing.Size(180, 22);
+            this.horzVertz_off.Text = "OFF";
+            this.horzVertz_off.Click += new System.EventHandler(this.oFFToolStripMenuItem1_Click);
+            // 
+            // horzVert
+            // 
+            this.horzVert.Tick += new System.EventHandler(this.horzVert_Tick);
+            // 
+            // allDir_on
+            // 
+            this.allDir_on.Name = "allDir_on";
+            this.allDir_on.Size = new System.Drawing.Size(180, 22);
+            this.allDir_on.Text = "ON";
+            this.allDir_on.Click += new System.EventHandler(this.allDir_on_Click);
+            // 
+            // allDir_off
+            // 
+            this.allDir_off.Name = "allDir_off";
+            this.allDir_off.Size = new System.Drawing.Size(180, 22);
+            this.allDir_off.Text = "OFF";
+            this.allDir_off.Click += new System.EventHandler(this.allDir_off_Click);
+            // 
+            // lossy_on
+            // 
+            this.lossy_on.Name = "lossy_on";
+            this.lossy_on.Size = new System.Drawing.Size(180, 22);
+            this.lossy_on.Text = "ON";
+            // 
+            // lossy_off
+            // 
+            this.lossy_off.Name = "lossy_off";
+            this.lossy_off.Size = new System.Drawing.Size(180, 22);
+            this.lossy_off.Text = "OFF";
+            // 
+            // horizontal_on
+            // 
+            this.horizontal_on.Name = "horizontal_on";
+            this.horizontal_on.Size = new System.Drawing.Size(180, 22);
+            this.horizontal_on.Text = "ON";
+            // 
+            // horizontal_off
+            // 
+            this.horizontal_off.Name = "horizontal_off";
+            this.horizontal_off.Size = new System.Drawing.Size(180, 22);
+            this.horizontal_off.Text = "OFF";
+            // 
+            // vertical_on
+            // 
+            this.vertical_on.Name = "vertical_on";
+            this.vertical_on.Size = new System.Drawing.Size(180, 22);
+            this.vertical_on.Text = "ON";
+            // 
+            // vertical_off
+            // 
+            this.vertical_off.Name = "vertical_off";
+            this.vertical_off.Size = new System.Drawing.Size(180, 22);
+            this.vertical_off.Text = "OFF";
+            // 
+            // allDirection
+            // 
+            this.allDirection.Tick += new System.EventHandler(this.allDirection_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1105,6 +1207,21 @@
         private System.Windows.Forms.ToolStripMenuItem emboss_off;
         private System.Windows.Forms.TrackBar meanTrackBar;
         private System.Windows.Forms.Label meanLabel;
+        private System.Windows.Forms.ToolStripMenuItem horzVertz_on;
+        private System.Windows.Forms.ToolStripMenuItem horzVertz_off;
+        private System.Windows.Forms.Timer horzVert;
+        private System.Windows.Forms.ToolStripMenuItem allDir_on;
+        private System.Windows.Forms.ToolStripMenuItem allDir_off;
+        private System.Windows.Forms.ToolStripMenuItem lossy_on;
+        private System.Windows.Forms.ToolStripMenuItem lossy_off;
+        private System.Windows.Forms.ToolStripMenuItem horizontal_on;
+        private System.Windows.Forms.ToolStripMenuItem horizontal_off;
+        private System.Windows.Forms.ToolStripMenuItem vertical_on;
+        private System.Windows.Forms.ToolStripMenuItem vertical_off;
+        private System.Windows.Forms.Timer allDirection;
+        private System.Windows.Forms.Timer lossy;
+        private System.Windows.Forms.Timer horizontalOnly;
+        private System.Windows.Forms.Timer verticalOnly;
     }
 }
 

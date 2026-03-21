@@ -250,6 +250,11 @@ namespace ImageProcessing
             sharpen.Stop();
             mean.Stop();
             emboss.Stop();
+            horzVert.Stop();
+            allDirection.Stop();
+            lossy.Stop();
+            horizontalOnly.Stop();
+            verticalOnly.Stop();
 
             //for gamma components
             gammaLabel.Visible = false;
@@ -674,6 +679,86 @@ namespace ImageProcessing
         private void emboss_off_Click(object sender, EventArgs e)
         {
             emboss.Stop();
+
+            pictureBox2.Image = null;
+        }
+
+        private static bool EdgeDetectHorzVert(Bitmap b)
+        {
+            ConvMatrix m = new ConvMatrix();
+
+            m.SetAll(0);
+            m.TopMid = m.MidLeft = m.MidRight = m.BottomMid = -1;
+            m.Pixel = 4;
+
+            m.Factor = 1;
+            m.Offset = 127;
+
+            return BitmapFilter.Conv3x3(b, m);
+        }
+
+        private void horzVert_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            EdgeDetectHorzVert(b);
+
+            pictureBox2.Image = b;
+        }
+
+        private void oNToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            StartTimer(horzVert);
+        }
+
+        private void oFFToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            horzVert.Stop();
+
+            pictureBox2.Image = null;
+        }
+        private static bool EdgeDetectAll(Bitmap b)
+        {
+            ConvMatrix m = new ConvMatrix();
+
+            m.SetAll(-1);
+            m.Pixel = 8;
+
+            m.Factor = 1;
+            m.Offset = 127;
+
+            return BitmapFilter.Conv3x3(b, m);
+        }
+
+        private void allDirection_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            EdgeDetectAll(b);
+
+            pictureBox2.Image = b;
+        }
+
+        private void allDir_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(allDirection);
+        }
+
+        private void allDir_off_Click(object sender, EventArgs e)
+        {
+            allDirection.Stop();
 
             pictureBox2.Image = null;
         }

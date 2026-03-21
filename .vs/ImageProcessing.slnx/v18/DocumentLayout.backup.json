@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "F:\\ImageProcessing\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\citlibfilters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\citlibfilters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\citlibfilters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\citlibfilters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,13 +38,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "F:\\ImageProcessing\\ImageProcessing\\Form1.cs",
               "RelativeDocumentMoniker": "ImageProcessing\\Form1.cs",
               "ToolTip": "F:\\ImageProcessing\\ImageProcessing\\Form1.cs",
               "RelativeToolTip": "ImageProcessing\\Form1.cs",
-              "ViewState": "AgIAAEMCAAAAAAAAAAAAAFACAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAG4CAAAAAAAAAAAgwHgCAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T01:54:54.977Z",
               "IsPinned": true,
@@ -52,20 +52,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "F:\\ImageProcessing\\ImageProcessing\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "ImageProcessing\\Form1.Designer.cs",
               "ToolTip": "F:\\ImageProcessing\\ImageProcessing\\Form1.Designer.cs",
               "RelativeToolTip": "ImageProcessing\\Form1.Designer.cs",
-              "ViewState": "AgIAAKsDAAAAAAAAAAAqwL8DAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-20T06:38:23.186Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Device.cs",
               "DocumentMoniker": "F:\\ImageProcessing\\ImageProcessing\\Device.cs",
               "RelativeDocumentMoniker": "ImageProcessing\\Device.cs",
@@ -73,7 +73,8 @@
               "RelativeToolTip": "ImageProcessing\\Device.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAYwE4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-14T14:34:33.398Z"
+              "WhenOpened": "2026-03-14T14:34:33.398Z",
+              "EditorCaption": ""
             }
           ]
         },
@@ -83,7 +84,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "F:\\ImageProcessing\\ImageProcessing\\Form1.cs",
               "RelativeDocumentMoniker": "ImageProcessing\\Form1.cs",
@@ -101,7 +102,7 @@
               "RelativeDocumentMoniker": "ImageProcessing\\CITLIBFilters.cs",
               "ToolTip": "F:\\ImageProcessing\\ImageProcessing\\CITLIBFilters.cs",
               "RelativeToolTip": "ImageProcessing\\CITLIBFilters.cs",
-              "ViewState": "AgIAAAsBAAAAAAAAAAAuwIcBAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAIcBAAAAAAAAAAAkwJ4BAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-16T15:11:58.96Z",
               "EditorCaption": ""

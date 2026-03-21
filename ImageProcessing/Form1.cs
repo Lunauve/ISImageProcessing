@@ -215,6 +215,10 @@ namespace ImageProcessing
             colorGreenTrackBar.Value = 0;
             colorBlueTrackBar.Value = 0;
 
+            //for mean removal components
+            meanLabel.Visible = false;
+            meanTrackBar.Visible = false;
+
             myDevice = DeviceManager.GetAllDevices();
 
             if (myDevice.Length == 0)
@@ -290,6 +294,10 @@ namespace ImageProcessing
             colorRedTrackBar.Value = 0;
             colorGreenTrackBar.Value = 0;
             colorBlueTrackBar.Value = 0;
+
+            //for mean removal components
+            meanLabel.Visible = false;
+            meanTrackBar.Visible = false;
 
             pictureBox2.Image = null;
 
@@ -615,17 +623,33 @@ namespace ImageProcessing
 
         private void mean_Tick(object sender, EventArgs e)
         {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
 
+            //trackbar to be min 0, max 2
+            BitmapFilter.MeanRemoval(b, 9 + meanTrackBar.Value);
+
+            pictureBox2.Image = b;
         }
 
         private void mean_on_Click(object sender, EventArgs e)
         {
-
+            StartTimer(mean);
+            meanLabel.Visible = true;
+            meanTrackBar.Visible = true;
         }
 
         private void mean_off_Click(object sender, EventArgs e)
         {
+            mean.Stop();
+            meanLabel.Visible = false;
+            meanTrackBar.Visible = false;
 
+            pictureBox2.Image = null;
         }
 
         private void emboss_Tick(object sender, EventArgs e)

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "F:\\ImageProcessing\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|F:\\ImageProcessing\\imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|solutionrelative:imageprocessing\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{306424A9-AF55-4C2D-BFB7-30E2FECC44BA}|ImageProcessing\\ImageProcessing.csproj|f:\\imageprocessing\\imageprocessing\\citlibfilters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +38,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "F:\\ImageProcessing\\ImageProcessing\\Form1.cs",
               "RelativeDocumentMoniker": "ImageProcessing\\Form1.cs",
@@ -83,7 +83,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "F:\\ImageProcessing\\ImageProcessing\\Form1.cs",
               "RelativeDocumentMoniker": "ImageProcessing\\Form1.cs",

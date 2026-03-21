@@ -244,6 +244,8 @@ namespace ImageProcessing
             smooth.Stop();
             gaussian.Stop();
             sharpen.Stop();
+            mean.Stop();
+            emboss.Stop();
 
             //for gamma components
             gammaLabel.Visible = false;
@@ -462,6 +464,53 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
+        private void color_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            BitmapFilter.Color(b,
+                colorRedTrackBar.Value,
+                colorGreenTrackBar.Value,
+                colorBlueTrackBar.Value);
+
+            pictureBox2.Image = b;
+        }
+
+        private void color_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(color);
+            colorLabel.Visible = true;
+            colorRedLabel.Visible = true;
+            colorGreenLabel.Visible = true;
+            colorBlueLabel.Visible = true;
+            colorRedTrackBar.Visible = true;
+            colorGreenTrackBar.Visible = true;
+            colorBlueTrackBar.Visible = true;
+        }
+
+        private void color_off_Click(object sender, EventArgs e)
+        {
+            color.Stop();
+
+            colorLabel.Visible = false;
+            colorRedLabel.Visible = false;
+            colorGreenLabel.Visible = false;
+            colorBlueLabel.Visible = false;
+            colorRedTrackBar.Visible = false;
+            colorGreenTrackBar.Visible = false;
+            colorBlueTrackBar.Visible = false;
+            colorRedTrackBar.Value = 0;
+            colorGreenTrackBar.Value = 0;
+            colorBlueTrackBar.Value = 0;
+
+            pictureBox2.Image = null;
+        }
+
         private void smooth_Tick(object sender, EventArgs e)
         {
             IDataObject data;
@@ -564,7 +613,22 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        private void color_Tick(object sender, EventArgs e)
+        private void mean_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mean_on_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mean_off_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emboss_Tick(object sender, EventArgs e)
         {
             IDataObject data;
             Image bmap;
@@ -573,40 +637,19 @@ namespace ImageProcessing
             bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
             b = new Bitmap(bmap);
 
-            BitmapFilter.Color(b,
-                colorRedTrackBar.Value,
-                colorGreenTrackBar.Value,
-                colorBlueTrackBar.Value);
+            BitmapFilter.EmbossLaplacian(b);
 
             pictureBox2.Image = b;
         }
 
-        private void color_on_Click(object sender, EventArgs e)
+        private void emboss_on_Click(object sender, EventArgs e)
         {
-            StartTimer(color);
-            colorLabel.Visible = true;
-            colorRedLabel.Visible = true;
-            colorGreenLabel.Visible = true;
-            colorBlueLabel.Visible = true;
-            colorRedTrackBar.Visible = true;
-            colorGreenTrackBar.Visible = true;
-            colorBlueTrackBar.Visible = true;
+            StartTimer(emboss);
         }
 
-        private void color_off_Click(object sender, EventArgs e)
+        private void emboss_off_Click(object sender, EventArgs e)
         {
-            color.Stop();
-
-            colorLabel.Visible = false;
-            colorRedLabel.Visible = false;
-            colorGreenLabel.Visible = false;
-            colorBlueLabel.Visible = false;
-            colorRedTrackBar.Visible = false;
-            colorGreenTrackBar.Visible = false;
-            colorBlueTrackBar.Visible = false;
-            colorRedTrackBar.Value = 0;
-            colorGreenTrackBar.Value = 0;
-            colorBlueTrackBar.Value = 0;
+            emboss.Stop();
 
             pictureBox2.Image = null;
         }

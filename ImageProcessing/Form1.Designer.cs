@@ -1013,24 +1013,28 @@
             this.lossy_on.Name = "lossy_on";
             this.lossy_on.Size = new System.Drawing.Size(180, 22);
             this.lossy_on.Text = "ON";
+            this.lossy_on.Click += new System.EventHandler(this.lossy_on_Click);
             // 
             // lossy_off
             // 
             this.lossy_off.Name = "lossy_off";
             this.lossy_off.Size = new System.Drawing.Size(180, 22);
             this.lossy_off.Text = "OFF";
+            this.lossy_off.Click += new System.EventHandler(this.lossy_off_Click);
             // 
             // horizontal_on
             // 
             this.horizontal_on.Name = "horizontal_on";
             this.horizontal_on.Size = new System.Drawing.Size(180, 22);
             this.horizontal_on.Text = "ON";
+            this.horizontal_on.Click += new System.EventHandler(this.horizontal_on_Click);
             // 
             // horizontal_off
             // 
             this.horizontal_off.Name = "horizontal_off";
             this.horizontal_off.Size = new System.Drawing.Size(180, 22);
             this.horizontal_off.Text = "OFF";
+            this.horizontal_off.Click += new System.EventHandler(this.horizontal_off_Click);
             // 
             // vertical_on
             // 
@@ -1047,6 +1051,14 @@
             // allDirection
             // 
             this.allDirection.Tick += new System.EventHandler(this.allDirection_Tick);
+            // 
+            // lossy
+            // 
+            this.lossy.Tick += new System.EventHandler(this.lossy_Tick);
+            // 
+            // horizontalOnly
+            // 
+            this.horizontalOnly.Tick += new System.EventHandler(this.horizontalOnly_Tick);
             // 
             // Form1
             // 

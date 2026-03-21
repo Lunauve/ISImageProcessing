@@ -763,6 +763,74 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
+        private static bool EdgeDetectLossy(Bitmap b)
+        {
+            ConvMatrix m = new ConvMatrix();
+
+            m.TopLeft = 1; m.TopMid = -2; m.TopRight = 1;
+            m.MidLeft = -2; m.Pixel = 4; m.MidRight = -2;
+            m.BottomLeft = -2; m.BottomMid = 1; m.BottomRight = -2;
+
+            m.Factor = 1;
+            m.Offset = 127;
+
+            return BitmapFilter.Conv3x3(b, m);
+        }
+
+        private void lossy_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            EdgeDetectLossy(b);
+
+            pictureBox2.Image = b;
+        }
+
+        private void lossy_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(lossy);
+        }
+
+        private void lossy_off_Click(object sender, EventArgs e)
+        {
+            lossy.Stop();
+
+            pictureBox2.Image = null;
+        }
+
+        private void horizontalOnly_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            BitmapFilter.EdgeDetectHorizontal(b);
+
+            pictureBox2.Image = b;
+        }
+
+        private void horizontal_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(horizontalOnly);
+        }
+
+        private void horizontal_off_Click(object sender, EventArgs e)
+        {
+            horizontalOnly.Stop();
+
+            pictureBox2.Image = null;
+        }
+
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             source = new Bitmap(openFileDialog1.FileName);

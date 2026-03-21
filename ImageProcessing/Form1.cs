@@ -831,6 +831,33 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
+        private void verticalOnly_Tick(object sender, EventArgs e)
+        {
+            IDataObject data;
+            Image bmap;
+
+            myDevice[0].Sendmessage();
+            data = Clipboard.GetDataObject();
+            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bmap);
+
+            BitmapFilter.EdgeDetectVertical(b);
+
+            pictureBox2.Image = b;
+        }
+
+        private void vertical_on_Click(object sender, EventArgs e)
+        {
+            StartTimer(verticalOnly);
+        }
+
+        private void vertical_off_Click(object sender, EventArgs e)
+        {
+            verticalOnly.Stop();
+
+            pictureBox2.Image = null;
+        }
+
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             source = new Bitmap(openFileDialog1.FileName);

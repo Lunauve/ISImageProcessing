@@ -1041,12 +1041,14 @@
             this.vertical_on.Name = "vertical_on";
             this.vertical_on.Size = new System.Drawing.Size(180, 22);
             this.vertical_on.Text = "ON";
+            this.vertical_on.Click += new System.EventHandler(this.vertical_on_Click);
             // 
             // vertical_off
             // 
             this.vertical_off.Name = "vertical_off";
             this.vertical_off.Size = new System.Drawing.Size(180, 22);
             this.vertical_off.Text = "OFF";
+            this.vertical_off.Click += new System.EventHandler(this.vertical_off_Click);
             // 
             // allDirection
             // 
@@ -1059,6 +1061,10 @@
             // horizontalOnly
             // 
             this.horizontalOnly.Tick += new System.EventHandler(this.horizontalOnly_Tick);
+            // 
+            // verticalOnly
+            // 
+            this.verticalOnly.Tick += new System.EventHandler(this.verticalOnly_Tick);
             // 
             // Form1
             // 

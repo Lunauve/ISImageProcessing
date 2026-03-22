@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebCamLib;
 using ImageProcess2;
@@ -419,6 +415,7 @@ namespace ImageProcessing
         private void Form1_Load(object sender, EventArgs e)
         {
             StopProcessing();
+            pictureBox2.Image = null;
 
             myDevice = DeviceManager.GetAllDevices();
 
@@ -431,11 +428,16 @@ namespace ImageProcessing
         private void oNToolStripMenuItem_Click(object sender, EventArgs e)
         {
             myDevice[0].ShowWindow(pictureBox1);
+            StartTimer(resultBoxNormal);
         }
 
         private void oFFToolStripMenuItem_Click(object sender, EventArgs e)
         {
             myDevice[0].Stop();
+            StopProcessing();
+            mainTimer.Stop();
+            resultBoxNormal.Stop();
+            pictureBox2.Image = null;
         }
 
         private void StartTimer(Timer timerToStart)
@@ -768,6 +770,7 @@ namespace ImageProcessing
         private void SetMode(Mode mode)
         {
             StopProcessing();
+            resultBoxNormal.Stop();
             currentMode = mode;
 
             if (configs.ContainsKey(mode))
@@ -808,6 +811,7 @@ namespace ImageProcessing
             colorBlueTrackBar.Value = 0;
 
             pictureBox2.Image = null;
+            StartTimer(resultBoxNormal);
         }
 
         private void ApplyConfig(FilterConfig config)
@@ -826,11 +830,9 @@ namespace ImageProcessing
             maxValueText.Text = config.Max.ToString();
             maxValueText.Visible = config.Visible;
 
-            mainLabel.Visible = config.Visible;
+            mainLabel.Visible = true;
             if (config.LabelText == "Gamma" || config.LabelText == "Color")
             {
-                mainLabel.Visible = true;
-
                 redLabel.Visible = true;
                 greenLabel.Visible = true;
                 blueLabel.Visible = true;
@@ -867,6 +869,16 @@ namespace ImageProcessing
         private void colorBlueTrackBar_Scroll(object sender, EventArgs e)
         {
             colorBlueValue.Text = colorBlueTrackBar.Value.ToString();
+        }
+
+        private void resultBoxNormal_Tick(object sender, EventArgs e)
+        {
+            Bitmap b = GetImage();
+
+            if (b == null)
+                return;
+
+            pictureBox2.Image = b;
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

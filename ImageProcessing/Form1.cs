@@ -20,10 +20,243 @@ namespace ImageProcessing
         public Form1()
         {
             InitializeComponent();
+
+            configs = new Dictionary<Mode, FilterConfig>
+            {
+                {
+                    Mode.Grayscale,
+                    new FilterConfig
+                    {
+                        LabelText = "Grayscale",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+                {
+                    Mode.Gamma,
+                    new FilterConfig
+                    {
+                        LabelText = "Gamma",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+                {
+                    Mode.Invert,
+                    new FilterConfig
+                    {
+                        LabelText = "Invert",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+                {
+                    Mode.Brightness,
+                    new FilterConfig
+                    {
+                        LabelText = "Brightness",
+                        Min = -255,
+                        Max = 255,
+                        DefaultValue = 0,
+                        LargeChange = 10,
+                        SmallChange = 1,
+                        Visible = true,
+                    }
+                },
+
+                {
+                    Mode.Contrast,
+                    new FilterConfig
+                    {
+                        LabelText = "Contrast",
+                        Min = -100,
+                        Max = 100,
+                        DefaultValue = 0,
+                        LargeChange = 10,
+                        SmallChange = 1,
+                        Visible = true,
+                    }
+                },
+
+                {
+                    Mode.Color,
+                    new FilterConfig
+                    {
+                        LabelText = "Color",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+                {
+                    Mode.Smooth,
+                    new FilterConfig
+                    {
+                        LabelText = "Smoothness",
+                        Min = 0,
+                        Max = 20,
+                        DefaultValue = 0,
+                        LargeChange = 1,
+                        SmallChange = 1,
+                        Visible = true,
+                    }
+                },
+
+                {
+                    Mode.Gauss,
+                    new FilterConfig
+                    {
+                        LabelText = "Gaussian Blur",
+                        Min = 0,
+                        Max = 5,
+                        DefaultValue = 0,
+                        LargeChange = 1,
+                        SmallChange = 1,
+                        Visible = true,
+                    }
+                },
+
+                {
+                    Mode.Sharpen,
+                    new FilterConfig
+                    {
+                        LabelText = "Sharpen",
+                        Min = 0,
+                        Max = 3,
+                        DefaultValue = 0,
+                        LargeChange = 1,
+                        SmallChange = 1,
+                        Visible = true,
+                    }
+                },
+
+
+                {
+                    Mode.MeanRemoval,
+                    new FilterConfig
+                    {
+                        LabelText = "Mean Removal",
+                        Min = 0,
+                        Max = 2,
+                        DefaultValue = 0,
+                        LargeChange = 1,
+                        SmallChange = 1,
+                        Visible = true,
+                    }
+                },
+
+                {
+                    Mode.Emboss,
+                    new FilterConfig
+                    {
+                        LabelText = "Emboss Laplascian",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+
+                {
+                    Mode.HorzVertz,
+                    new FilterConfig
+                    {
+                        LabelText = "HorzVertz",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+
+                {
+                    Mode.AllDirection,
+                    new FilterConfig
+                    {
+                        LabelText = "All Direction",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+
+                {
+                    Mode.Lossy,
+                    new FilterConfig
+                    {
+                        LabelText = "Lossy",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+                {
+                    Mode.HorizontalOnly,
+                    new FilterConfig
+                    {
+                        LabelText = "Horizontal Only",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+                {
+                    Mode.VerticalOnly,
+                    new FilterConfig
+                    {
+                        LabelText = "Vertical Only",
+                        Min = 0,
+                        Max = 0,
+                        DefaultValue = 0,
+                        LargeChange = 0,
+                        SmallChange = 0,
+                        Visible = false,
+                    }
+                },
+
+            };
         }
 
         //temp
         private Mode currentMode = Mode.Grayscale;
+        private Dictionary<Mode, FilterConfig> configs;
 
         private void loadImageToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -177,6 +410,9 @@ namespace ImageProcessing
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            mainLabel.Visible = false;
+            mainTrackBar.Visible = false;
+
             //for gamma components
             gammaLabel.Visible = false;
             gammaRedLabel.Visible = false;
@@ -187,30 +423,30 @@ namespace ImageProcessing
             gammaBlueUpDown.Visible = false;
 
             //for brightness components
-            brightnessLabel.Visible = false;
-            brightnessTrackBar.Visible = false;
+            //brightnessLabel.Visible = false;
+            //brightnessTrackBar.Visible = false;
 
             //for contrast components
-            contrastLabel.Visible = false;
-            contrastTrackBar.Visible = false;
+            //contrastLabel.Visible = false;
+            //contrastTrackBar.Visible = false;
 
             //for smoothness components
-            smoothLabel.Visible = false;
-            smoothTrackBar.Visible = false;
+            //smoothLabel.Visible = false;
+            //smoothTrackBar.Visible = false;
 
             //for gauss components
-            gaussLabel.Visible = false;
-            gaussTrackBar.Visible = false;
+            //gaussLabel.Visible = false;
+            //gaussTrackBar.Visible = false;
 
             //for sharpen components
-            sharpLabel.Visible = false;
-            sharpTrackBar.Visible = false;
+            //sharpLabel.Visible = false;
+            //sharpTrackBar.Visible = false;
 
             //for color components
-            colorLabel.Visible = false;
-            colorRedLabel.Visible = false;
-            colorGreenLabel.Visible = false;
-            colorBlueLabel.Visible = false;
+            //colorLabel.Visible = false;
+            //colorRedLabel.Visible = false;
+            //colorGreenLabel.Visible = false;
+            //colorBlueLabel.Visible = false;
             colorRedTrackBar.Visible = false;
             colorGreenTrackBar.Visible = false;
             colorBlueTrackBar.Visible = false;
@@ -219,8 +455,8 @@ namespace ImageProcessing
             colorBlueTrackBar.Value = 0;
 
             //for mean removal components
-            meanLabel.Visible = false;
-            meanTrackBar.Visible = false;
+            //meanLabel.Visible = false;
+            //meanTrackBar.Visible = false;
 
             myDevice = DeviceManager.GetAllDevices();
 
@@ -272,30 +508,30 @@ namespace ImageProcessing
             gammaBlueUpDown.Value = gammaBlueUpDown.Minimum;
 
             //for brightness components
-            brightnessLabel.Visible = false;
-            brightnessTrackBar.Visible = false;
+            //brightnessLabel.Visible = false;
+            //brightnessTrackBar.Visible = false;
 
             //for contrast components
-            contrastLabel.Visible = false;
-            contrastTrackBar.Visible = false;
+            //contrastLabel.Visible = false;
+            //contrastTrackBar.Visible = false;
 
             //for smoothness components
-            smoothLabel.Visible = false;
-            smoothTrackBar.Visible = false;
+            //smoothLabel.Visible = false;
+            //smoothTrackBar.Visible = false;
 
             //for gauss components
-            gaussLabel.Visible = false;
-            gaussTrackBar.Visible = false;
+            //gaussLabel.Visible = false;
+            //gaussTrackBar.Visible = false;
 
             //for sharpen components
-            sharpLabel.Visible = false;
-            sharpTrackBar.Visible = false;
+            //sharpLabel.Visible = false;
+            //sharpTrackBar.Visible = false;
 
             //for color components
-            colorLabel.Visible = false;
-            colorRedLabel.Visible = false;
-            colorGreenLabel.Visible = false;
-            colorBlueLabel.Visible = false;
+            //colorLabel.Visible = false;
+            //colorRedLabel.Visible = false;
+            //colorGreenLabel.Visible = false;
+            //colorBlueLabel.Visible = false;
             colorRedTrackBar.Visible = false;
             colorGreenTrackBar.Visible = false;
             colorBlueTrackBar.Visible = false;
@@ -304,8 +540,8 @@ namespace ImageProcessing
             colorBlueTrackBar.Value = 0;
 
             //for mean removal components
-            meanLabel.Visible = false;
-            meanTrackBar.Visible = false;
+            //meanLabel.Visible = false;
+            //meanTrackBar.Visible = false;
 
             pictureBox2.Image = null;
 
@@ -336,9 +572,7 @@ namespace ImageProcessing
 
         private void oNGrey_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Grayscale;
-
-            StartTimer(mainTimer);
+            SetMode(Mode.Grayscale);
         }
 
         private void oFFgrey_Click(object sender, EventArgs e)
@@ -368,9 +602,12 @@ namespace ImageProcessing
 
         private void gamma_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Gamma;
+            //currentMode = Mode.Gamma;
 
-            StartTimer(mainTimer);
+            //StartTimer(mainTimer);
+
+            SetMode(Mode.Gamma);
+
             gammaLabel.Visible = true;
             gammaRedLabel.Visible = true;
             gammaGreenLabel.Visible = true;
@@ -414,8 +651,7 @@ namespace ImageProcessing
 
         private void invert_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Invert;
-            StartTimer(mainTimer);
+            SetMode(Mode.Invert);
         }
 
         private void invert_off_Click(object sender, EventArgs e)
@@ -441,17 +677,23 @@ namespace ImageProcessing
 
         private void brightness_On_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Brightness;
-            StartTimer(mainTimer);
-            brightnessLabel.Visible = true;
-            brightnessTrackBar.Visible = true;
+            // brightness tb
+            // large change 1
+            // max 255
+            // min -255
+            // value 0
+            // currentMode = Mode.Brightness;
+            // StartTimer(mainTimer);
+            // mainLabel.Visible = true;
+            //mainTrackBar.Visible = true;
+            SetMode(Mode.Brightness);
         }
 
         private void brightness_Off_Click(object sender, EventArgs e)
         {
             mainTimer.Stop();
-            brightnessLabel.Visible = false;
-            brightnessTrackBar.Visible = false;
+            mainLabel.Visible = false;
+            mainTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
@@ -472,17 +714,24 @@ namespace ImageProcessing
 
         private void contrast_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Contrast;
-            StartTimer(mainTimer);
-            contrastLabel.Visible = true;
-            contrastTrackBar.Visible = true;
+            // contrast tb
+            // large change 1
+            // max 100
+            // min -100
+            // value 0
+            //currentMode = Mode.Contrast;
+            //StartTimer(mainTimer);
+            //mainLabel.Visible = true;
+            //mainTrackBar.Visible = true;
+
+            SetMode(Mode.Contrast);
         }
 
         private void contrast_off_Click(object sender, EventArgs e)
         {
             mainTimer.Stop();
-            contrastLabel.Visible = false;
-            contrastTrackBar.Visible = false;
+            mainLabel.Visible = false;
+            mainTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
@@ -508,10 +757,10 @@ namespace ImageProcessing
         {
             currentMode = Mode.Color;
             StartTimer(mainTimer);
-            colorLabel.Visible = true;
-            colorRedLabel.Visible = true;
-            colorGreenLabel.Visible = true;
-            colorBlueLabel.Visible = true;
+            mainLabel.Visible = true;
+            //colorRedLabel.Visible = true;
+            //colorGreenLabel.Visible = true;
+            //colorBlueLabel.Visible = true;
             colorRedTrackBar.Visible = true;
             colorGreenTrackBar.Visible = true;
             colorBlueTrackBar.Visible = true;
@@ -521,10 +770,10 @@ namespace ImageProcessing
         {
             mainTimer.Stop();
 
-            colorLabel.Visible = false;
-            colorRedLabel.Visible = false;
-            colorGreenLabel.Visible = false;
-            colorBlueLabel.Visible = false;
+            mainLabel.Visible = false;
+            //colorRedLabel.Visible = false;
+            //colorGreenLabel.Visible = false;
+            //colorBlueLabel.Visible = false;
             colorRedTrackBar.Visible = false;
             colorGreenTrackBar.Visible = false;
             colorBlueTrackBar.Visible = false;
@@ -555,17 +804,23 @@ namespace ImageProcessing
 
         private void smooth_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Smooth;
-            StartTimer(mainTimer);
-            smoothLabel.Visible = true;
-            smoothTrackBar.Visible = true;
+            // smooth tb
+            // large change 1
+            // max 20
+            // min 0
+            // value 0
+            //currentMode = Mode.Smooth;
+            //StartTimer(mainTimer);
+            //mainLabel.Visible = true;
+            //mainTrackBar.Visible = true;
+            SetMode(Mode.Smooth);
         }
 
         private void smooth_off_Click(object sender, EventArgs e)
         {
             mainTimer.Stop();
-            smoothLabel.Visible = false;
-            smoothTrackBar.Visible = false;
+            mainLabel.Visible = false;
+            mainTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
@@ -590,17 +845,24 @@ namespace ImageProcessing
 
         private void gauss_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Gauss;
-            StartTimer(mainTimer);
-            gaussLabel.Visible = true;
-            gaussTrackBar.Visible = true;
+            // gauss tb
+            // large change 1
+            // max 5
+            // min 0
+            // value 0
+            //currentMode = Mode.Gauss;
+            //StartTimer(mainTimer);
+            //mainLabel.Visible = true;
+            //mainTrackBar.Visible = true;
+
+            SetMode(Mode.Gauss);
         }
 
         private void gauss_off_Click(object sender, EventArgs e)
         {
             mainTimer.Stop();
-            gaussLabel.Visible = false;
-            gaussTrackBar.Visible = false;
+            mainLabel.Visible = false;
+            mainTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
@@ -625,17 +887,24 @@ namespace ImageProcessing
 
         private void sharp_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Sharpen;
-            StartTimer(mainTimer);
-            sharpLabel.Visible = true;
-            sharpTrackBar.Visible = true;
+            // sharp tb
+            // large change 1
+            // max 3
+            // min 0
+            // value 0
+            //currentMode = Mode.Sharpen;
+            //StartTimer(mainTimer);
+            //mainLabel.Visible = true;
+            //mainTrackBar.Visible = true;
+
+            SetMode(Mode.Sharpen);
         }
 
         private void sharp_off_Click(object sender, EventArgs e)
         {
             mainTimer.Stop();
-            sharpLabel.Visible = false;
-            sharpTrackBar.Visible = false;
+            mainLabel.Visible = false;
+            mainTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
@@ -657,17 +926,34 @@ namespace ImageProcessing
 
         private void mean_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.MeanRemoval;
-            StartTimer(mainTimer);
-            meanLabel.Visible = true;
-            meanTrackBar.Visible = true;
+            // mean tb
+            // large change 1
+            // max 2
+            // min 0
+            //// value 0
+            //currentMode = Mode.MeanRemoval;
+
+            //mainLabel.Text = "Mean Removal";
+
+            //mainTrackBar.Value = 0;
+            //mainTrackBar.Maximum = 2;
+            //mainTrackBar.Minimum = 0;
+            //mainTrackBar.LargeChange = 1;
+            //mainTrackBar.SmallChange = 1;
+
+            //mainLabel.Visible = true;
+            //mainTrackBar.Visible = true;
+
+            //StartTimer(mainTimer);
+
+            SetMode(Mode.MeanRemoval);
         }
 
         private void mean_off_Click(object sender, EventArgs e)
         {
             mainTimer.Stop();
-            meanLabel.Visible = false;
-            meanTrackBar.Visible = false;
+            mainLabel.Visible = false;
+            mainTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
@@ -688,8 +974,7 @@ namespace ImageProcessing
 
         private void emboss_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Emboss;
-            StartTimer(mainTimer);
+            SetMode(Mode.Emboss);
         }
 
         private void emboss_off_Click(object sender, EventArgs e)
@@ -730,8 +1015,9 @@ namespace ImageProcessing
 
         private void horzVertz_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.HorzVertz;
-            StartTimer(mainTimer);
+            //currentMode = Mode.HorzVertz;
+            //StartTimer(mainTimer);
+            SetMode(Mode.HorzVertz);
         }
 
         private void horzVertz_off_Click(object sender, EventArgs e)
@@ -771,8 +1057,10 @@ namespace ImageProcessing
 
         private void allDir_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.AllDirection;
-            StartTimer(mainTimer);
+            //currentMode = Mode.AllDirection;
+            //StartTimer(mainTimer);
+
+            SetMode(Mode.AllDirection);
         }
 
         private void allDir_off_Click(object sender, EventArgs e)
@@ -813,8 +1101,10 @@ namespace ImageProcessing
 
         private void lossy_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Lossy;
-            StartTimer(mainTimer);
+            //currentMode = Mode.Lossy;
+            //StartTimer(mainTimer);
+
+            SetMode(Mode.Lossy);
         }
 
         private void lossy_off_Click(object sender, EventArgs e)
@@ -841,8 +1131,10 @@ namespace ImageProcessing
 
         private void horizontal_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.HorizontalOnly;
-            StartTimer(mainTimer);
+            //currentMode = Mode.HorizontalOnly;
+            //StartTimer(mainTimer);
+
+            SetMode(Mode.HorizontalOnly);
         }
 
         private void horizontal_off_Click(object sender, EventArgs e)
@@ -869,8 +1161,10 @@ namespace ImageProcessing
 
         private void vertical_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.VerticalOnly;
-            StartTimer(mainTimer);
+            //currentMode = Mode.VerticalOnly;
+            //StartTimer(mainTimer);
+
+            SetMode(Mode.VerticalOnly);
         }
 
         private void vertical_off_Click(object sender, EventArgs e)
@@ -906,11 +1200,11 @@ namespace ImageProcessing
                     break;
 
                 case Mode.Brightness:
-                    BitmapFilter.Brightness(b, brightnessTrackBar.Value);
+                    BitmapFilter.Brightness(b, mainTrackBar.Value);
                     break;
 
                 case Mode.Contrast:
-                    BitmapFilter.Contrast(b, (sbyte)contrastTrackBar.Value);
+                    BitmapFilter.Contrast(b, (sbyte)mainTrackBar.Value);
                     break;
 
                 case Mode.Color:
@@ -923,7 +1217,7 @@ namespace ImageProcessing
 
                 case Mode.Smooth:
                     //apply 10 passes for smoothness
-                    for (int i = 0; i < smoothTrackBar.Value; i++)
+                    for (int i = 0; i < mainTrackBar.Value; i++)
                     {
                         BitmapFilter.Smooth(b, 1);
                     }
@@ -931,7 +1225,7 @@ namespace ImageProcessing
 
                 case Mode.Gauss:
                     //apply 5 passes for gaussian blur
-                    for (int i = 0; i < gaussTrackBar.Value; i++)
+                    for (int i = 0; i < mainTrackBar.Value; i++)
                     {
                         BitmapFilter.GaussianBlur(b, 1);
                     }
@@ -939,14 +1233,14 @@ namespace ImageProcessing
 
                 case Mode.Sharpen:
                     //apply 3 passes for sharpen
-                    for (int i = 0; i < sharpTrackBar.Value; i++)
+                    for (int i = 0; i < mainTrackBar.Value; i++)
                     {
                         BitmapFilter.Sharpen(b, 11);
                     }
                     break;
 
                 case Mode.MeanRemoval:
-                    BitmapFilter.MeanRemoval(b, 9 + meanTrackBar.Value);
+                    BitmapFilter.MeanRemoval(b, 9 + mainTrackBar.Value);
                     break;
 
                 case Mode.Emboss:
@@ -992,6 +1286,30 @@ namespace ImageProcessing
                 return null;
 
             return new Bitmap(bmap);
+        }
+
+        private void SetMode(Mode mode)
+        {
+            currentMode = mode;
+
+            if (configs.ContainsKey(mode))
+                ApplyConfig(configs[mode]);
+
+            StartTimer(mainTimer);
+        }
+
+        private void ApplyConfig(FilterConfig config)
+        {
+            mainLabel.Text = config.LabelText;
+
+            mainTrackBar.Minimum = config.Min;
+            mainTrackBar.Maximum = config.Max;
+            mainTrackBar.Value = config.DefaultValue;
+            mainTrackBar.LargeChange = config.LargeChange;
+            mainTrackBar.SmallChange = config.SmallChange;
+
+            mainLabel.Visible = config.Visible;
+            mainTrackBar.Visible = config.Visible;
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

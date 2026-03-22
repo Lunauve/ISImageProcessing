@@ -112,6 +112,8 @@
             this.colorRedValue = new System.Windows.Forms.Label();
             this.colorGreenValue = new System.Windows.Forms.Label();
             this.colorBlueValue = new System.Windows.Forms.Label();
+            this.minValueText = new System.Windows.Forms.Label();
+            this.maxValueText = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -835,8 +837,7 @@
             this.mainTrackBar.Minimum = -255;
             this.mainTrackBar.Name = "mainTrackBar";
             this.mainTrackBar.Size = new System.Drawing.Size(640, 45);
-            this.mainTrackBar.TabIndex = 30;
-            // 
+            this.mainTrackBar.TabIndex = 30;            // 
             // colorRedValue
             // 
             this.colorRedValue.AutoSize = true;
@@ -864,11 +865,31 @@
             this.colorBlueValue.TabIndex = 33;
             this.colorBlueValue.Text = "0";
             // 
+            // minValueText
+            // 
+            this.minValueText.AutoSize = true;
+            this.minValueText.Location = new System.Drawing.Point(31, 430);
+            this.minValueText.Name = "minValueText";
+            this.minValueText.Size = new System.Drawing.Size(13, 13);
+            this.minValueText.TabIndex = 34;
+            this.minValueText.Text = "0";
+            // 
+            // maxValueText
+            // 
+            this.maxValueText.AutoSize = true;
+            this.maxValueText.Location = new System.Drawing.Point(661, 430);
+            this.maxValueText.Name = "maxValueText";
+            this.maxValueText.Size = new System.Drawing.Size(13, 13);
+            this.maxValueText.TabIndex = 35;
+            this.maxValueText.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 486);
+            this.Controls.Add(this.maxValueText);
+            this.Controls.Add(this.minValueText);
             this.Controls.Add(this.colorBlueValue);
             this.Controls.Add(this.colorGreenValue);
             this.Controls.Add(this.colorRedValue);
@@ -994,6 +1015,8 @@
         private System.Windows.Forms.Label colorRedValue;
         private System.Windows.Forms.Label colorGreenValue;
         private System.Windows.Forms.Label colorBlueValue;
+        private System.Windows.Forms.Label minValueText;
+        private System.Windows.Forms.Label maxValueText;
     }
 }
 

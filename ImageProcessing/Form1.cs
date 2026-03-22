@@ -418,56 +418,7 @@ namespace ImageProcessing
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            mainLabel.Visible = false;
-            mainTrackBar.Visible = false;
-
-            //for gamma components
-            //gammaLabel.Visible = false;
-            redLabel.Visible = false;
-            greenLabel.Visible = false;
-            blueLabel.Visible = false;
-            colorRedValue.Visible = false;
-            colorGreenValue.Visible = false;
-            colorBlueValue.Visible = false;
-            gammaRedUpDown.Visible = false;
-            gammaGreenUpDown.Visible = false;
-            gammaBlueUpDown.Visible = false;
-
-            //for brightness components
-            //brightnessLabel.Visible = false;
-            //brightnessTrackBar.Visible = false;
-
-            //for contrast components
-            //contrastLabel.Visible = false;
-            //contrastTrackBar.Visible = false;
-
-            //for smoothness components
-            //smoothLabel.Visible = false;
-            //smoothTrackBar.Visible = false;
-
-            //for gauss components
-            //gaussLabel.Visible = false;
-            //gaussTrackBar.Visible = false;
-
-            //for sharpen components
-            //sharpLabel.Visible = false;
-            //sharpTrackBar.Visible = false;
-
-            //for color components
-            //colorLabel.Visible = false;
-            //colorRedLabel.Visible = false;
-            //colorGreenLabel.Visible = false;
-            //colorBlueLabel.Visible = false;
-            colorRedTrackBar.Visible = false;
-            colorGreenTrackBar.Visible = false;
-            colorBlueTrackBar.Visible = false;
-            colorRedTrackBar.Value = 0;
-            colorGreenTrackBar.Value = 0;
-            colorBlueTrackBar.Value = 0;
-
-            //for mean removal components
-            //meanLabel.Visible = false;
-            //meanTrackBar.Visible = false;
+            StopProcessing();
 
             myDevice = DeviceManager.GetAllDevices();
 
@@ -489,28 +440,6 @@ namespace ImageProcessing
 
         private void StartTimer(Timer timerToStart)
         {
-            redLabel.Visible = false;
-            greenLabel.Visible = false;
-            blueLabel.Visible = false;
-            gammaRedUpDown.Visible = false;
-            gammaGreenUpDown.Visible = false;
-            gammaBlueUpDown.Visible = false;
-            colorRedValue.Visible = false;
-            colorGreenValue.Visible = false;
-            colorBlueValue.Visible = false;
-            gammaRedUpDown.Value = gammaRedUpDown.Minimum;
-            gammaGreenUpDown.Value = gammaGreenUpDown.Minimum;
-            gammaBlueUpDown.Value = gammaBlueUpDown.Minimum;
-
-            colorRedTrackBar.Visible = false;
-            colorGreenTrackBar.Visible = false;
-            colorBlueTrackBar.Visible = false;
-            colorRedTrackBar.Value = 0;
-            colorGreenTrackBar.Value = 0;
-            colorBlueTrackBar.Value = 0;
-
-            pictureBox2.Image = null;
-
             // clear bitmap reference
             if (b != null)
             {
@@ -528,38 +457,17 @@ namespace ImageProcessing
 
         private void oFFgrey_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void gamma_on_Click(object sender, EventArgs e)
         {
             SetMode(Mode.Gamma);
-
-            redLabel.Visible = true;
-            greenLabel.Visible = true;
-            blueLabel.Visible = true;
-            gammaRedUpDown.Visible = true;
-            gammaGreenUpDown.Visible = true;
-            gammaBlueUpDown.Visible = true;
         }
 
         private void gamma_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            redLabel.Visible = false;
-            greenLabel.Visible = false;
-            blueLabel.Visible = false;
-            gammaRedUpDown.Visible = false;
-            gammaGreenUpDown.Visible = false;
-            gammaBlueUpDown.Visible = false;
-            gammaRedUpDown.Value = gammaRedUpDown.Minimum;
-            gammaGreenUpDown.Value = gammaGreenUpDown.Minimum;
-            gammaBlueUpDown.Value = gammaBlueUpDown.Minimum;
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void invert_on_Click(object sender, EventArgs e)
@@ -569,9 +477,7 @@ namespace ImageProcessing
 
         private void invert_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void brightness_On_Click(object sender, EventArgs e)
@@ -581,11 +487,7 @@ namespace ImageProcessing
 
         private void brightness_Off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-            mainLabel.Visible = false;
-            mainTrackBar.Visible = false;
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void contrast_on_Click(object sender, EventArgs e)
@@ -595,45 +497,17 @@ namespace ImageProcessing
 
         private void contrast_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-            mainLabel.Visible = false;
-            mainTrackBar.Visible = false;
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void color_on_Click(object sender, EventArgs e)
         {
-            currentMode = Mode.Color;
-            StartTimer(mainTimer);
-            mainLabel.Visible = true;
-            redLabel.Visible = true;
-            greenLabel.Visible = true;
-            blueLabel.Visible = true;
-            colorRedTrackBar.Visible = true;
-            colorGreenTrackBar.Visible = true;
-            colorBlueTrackBar.Visible = true;
-            colorRedValue.Visible = true;
-            colorGreenValue.Visible = true;
-            colorBlueValue.Visible = true;
+            SetMode(Mode.Color);
         }
 
         private void color_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            mainLabel.Visible = false;
-            colorRedValue.Visible = false;
-            colorGreenValue.Visible = false;
-            colorBlueValue.Visible = false;
-            colorRedTrackBar.Visible = false;
-            colorGreenTrackBar.Visible = false;
-            colorBlueTrackBar.Visible = false;
-            colorRedTrackBar.Value = 0;
-            colorGreenTrackBar.Value = 0;
-            colorBlueTrackBar.Value = 0;
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void smooth_on_Click(object sender, EventArgs e)
@@ -643,11 +517,7 @@ namespace ImageProcessing
 
         private void smooth_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-            mainLabel.Visible = false;
-            mainTrackBar.Visible = false;
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void gauss_on_Click(object sender, EventArgs e)
@@ -657,11 +527,7 @@ namespace ImageProcessing
 
         private void gauss_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-            mainLabel.Visible = false;
-            mainTrackBar.Visible = false;
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void sharp_on_Click(object sender, EventArgs e)
@@ -671,11 +537,7 @@ namespace ImageProcessing
 
         private void sharp_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-            mainLabel.Visible = false;
-            mainTrackBar.Visible = false;
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void mean_on_Click(object sender, EventArgs e)
@@ -685,11 +547,7 @@ namespace ImageProcessing
 
         private void mean_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-            mainLabel.Visible = false;
-            mainTrackBar.Visible = false;
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void emboss_on_Click(object sender, EventArgs e)
@@ -699,9 +557,7 @@ namespace ImageProcessing
 
         private void emboss_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private static bool EdgeDetectHorzVertz(Bitmap b)
@@ -725,9 +581,7 @@ namespace ImageProcessing
 
         private void horzVertz_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private static bool EdgeDetectAll(Bitmap b)
@@ -750,9 +604,7 @@ namespace ImageProcessing
 
         private void allDir_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private static bool EdgeDetectLossy(Bitmap b)
@@ -776,9 +628,7 @@ namespace ImageProcessing
 
         private void lossy_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void horizontal_on_Click(object sender, EventArgs e)
@@ -788,9 +638,7 @@ namespace ImageProcessing
 
         private void horizontal_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void vertical_on_Click(object sender, EventArgs e)
@@ -800,9 +648,7 @@ namespace ImageProcessing
 
         private void vertical_off_Click(object sender, EventArgs e)
         {
-            mainTimer.Stop();
-
-            pictureBox2.Image = null;
+            StopProcessing();
         }
 
         private void mainTimer_Tick(object sender, EventArgs e)
@@ -921,12 +767,47 @@ namespace ImageProcessing
 
         private void SetMode(Mode mode)
         {
+            StopProcessing();
             currentMode = mode;
 
             if (configs.ContainsKey(mode))
                 ApplyConfig(configs[mode]);
 
             StartTimer(mainTimer);
+        }
+
+        private void StopProcessing()
+        {
+            mainTimer.Stop();
+
+            mainLabel.Visible = false;
+            mainTrackBar.Visible = false;
+            minValueText.Visible = false;
+            maxValueText.Visible = false;
+
+            //for gamma and color components
+            redLabel.Visible = false;
+            greenLabel.Visible = false;
+            blueLabel.Visible = false;
+
+            gammaRedUpDown.Visible = false;
+            gammaGreenUpDown.Visible = false;
+            gammaBlueUpDown.Visible = false;
+            gammaRedUpDown.Value = gammaRedUpDown.Minimum;
+            gammaGreenUpDown.Value = gammaGreenUpDown.Minimum;
+            gammaBlueUpDown.Value = gammaBlueUpDown.Minimum;
+
+            colorRedValue.Visible = false;
+            colorGreenValue.Visible = false;
+            colorBlueValue.Visible = false;
+            colorRedTrackBar.Visible = false;
+            colorGreenTrackBar.Visible = false;
+            colorBlueTrackBar.Visible = false;
+            colorRedTrackBar.Value = 0;
+            colorGreenTrackBar.Value = 0;
+            colorBlueTrackBar.Value = 0;
+
+            pictureBox2.Image = null;
         }
 
         private void ApplyConfig(FilterConfig config)
@@ -939,12 +820,36 @@ namespace ImageProcessing
             mainTrackBar.LargeChange = config.LargeChange;
             mainTrackBar.SmallChange = config.SmallChange;
 
+            minValueText.Visible = config.Visible;
+            maxValueText.Visible = config.Visible;
+            minValueText.Text = config.Min.ToString();
+            maxValueText.Text = config.Max.ToString();
+            maxValueText.Visible = config.Visible;
+
             mainLabel.Visible = config.Visible;
-            if (config.LabelText == "Gamma"
-                 || config.LabelText == "Color"
-                 )
+            if (config.LabelText == "Gamma" || config.LabelText == "Color")
             {
                 mainLabel.Visible = true;
+
+                redLabel.Visible = true;
+                greenLabel.Visible = true;
+                blueLabel.Visible = true;
+
+                if (config.LabelText == "Gamma")
+                {
+                    gammaRedUpDown.Visible = true;
+                    gammaGreenUpDown.Visible = true;
+                    gammaBlueUpDown.Visible = true;
+                }
+                else
+                {
+                    colorRedTrackBar.Visible = true;
+                    colorGreenTrackBar.Visible = true;
+                    colorBlueTrackBar.Visible = true;
+                    colorRedValue.Visible = true;
+                    colorGreenValue.Visible = true;
+                    colorBlueValue.Visible = true;
+                }
             }
             mainTrackBar.Visible = config.Visible;
         }

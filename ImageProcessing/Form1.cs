@@ -22,6 +22,9 @@ namespace ImageProcessing
             InitializeComponent();
         }
 
+        //temp
+        private Mode currentMode = Mode.Grayscale;
+
         private void loadImageToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
@@ -239,22 +242,22 @@ namespace ImageProcessing
 
         private void StartTimer(Timer timerToStart)
         {
-            greyscale.Stop();
-            gamma.Stop();
-            invert.Stop();
-            brightness.Stop();
-            color.Stop();
-            contrast.Stop();
-            smooth.Stop();
-            gaussian.Stop();
-            sharpen.Stop();
-            mean.Stop();
-            emboss.Stop();
-            horzVert.Stop();
-            allDirection.Stop();
-            lossy.Stop();
-            horizontalOnly.Stop();
-            verticalOnly.Stop();
+            //greyscale.Stop();
+            //gamma.Stop();
+            //invert.Stop();
+            //brightness.Stop();
+            //contrast.Stop();
+            //color.Stop();
+            //smooth.Stop();
+            //gaussian.Stop();
+            //sharpen.Stop();
+            //mean.Stop();
+            //emboss.Stop();
+            //horzVert.Stop();
+            //allDirection.Stop();
+            //lossy.Stop();
+            //horizontalOnly.Stop();
+            //verticalOnly.Stop();
 
             //for gamma components
             gammaLabel.Visible = false;
@@ -316,36 +319,58 @@ namespace ImageProcessing
             timerToStart.Start();
         }
 
-        private void grayscale_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void grayscale_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
 
-            BitmapFilter.GrayScale(b);
+        //    BitmapFilter.GrayScale(b);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void oNGrey_Click(object sender, EventArgs e)
         {
-            StartTimer(greyscale);
+            currentMode = Mode.Grayscale;
+
+            StartTimer(mainTimer);
         }
 
-        private void oFFggrey_Click(object sender, EventArgs e)
+        private void oFFgrey_Click(object sender, EventArgs e)
         {
-            greyscale.Stop();
+            mainTimer.Stop();
 
             pictureBox2.Image = null;
         }
 
+        //private void gamma_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
+
+        //    BitmapFilter.Gamma(
+        //        b,
+        //        (double)gammaRedUpDown.Value,
+        //        (double)gammaGreenUpDown.Value,
+        //        (double)gammaBlueUpDown.Value);
+
+        //    pictureBox2.Image = b;
+        //}
+
         private void gamma_on_Click(object sender, EventArgs e)
         {
-            StartTimer(gamma);
+            currentMode = Mode.Gamma;
+
+            StartTimer(mainTimer);
             gammaLabel.Visible = true;
             gammaRedLabel.Visible = true;
             gammaGreenLabel.Visible = true;
@@ -357,7 +382,7 @@ namespace ImageProcessing
 
         private void gamma_off_Click(object sender, EventArgs e)
         {
-            gamma.Stop();
+            mainTimer.Stop();
 
             gammaLabel.Visible = false;
             gammaRedLabel.Visible = false;
@@ -373,130 +398,116 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        private void gamma_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void invert_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            BitmapFilter.Gamma(
-                b,
-                (double)gammaRedUpDown.Value,
-                (double)gammaGreenUpDown.Value,
-                (double)gammaBlueUpDown.Value);
+        //    BitmapFilter.Invert(b);
 
-            pictureBox2.Image = b;
-        }
-
-        private void invert_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
-
-            BitmapFilter.Invert(b);
-
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void invert_on_Click(object sender, EventArgs e)
         {
-            StartTimer(invert);
+            currentMode = Mode.Invert;
+            StartTimer(mainTimer);
         }
 
         private void invert_off_Click(object sender, EventArgs e)
         {
-            invert.Stop();
+            mainTimer.Stop();
 
             pictureBox2.Image = null;
         }
 
-        private void brightness_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void brightness_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            BitmapFilter.Brightness(b, brightnessTrackBar.Value);
+        //    BitmapFilter.Brightness(b, brightnessTrackBar.Value);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void brightness_On_Click(object sender, EventArgs e)
         {
-            StartTimer(brightness);
+            currentMode = Mode.Brightness;
+            StartTimer(mainTimer);
             brightnessLabel.Visible = true;
             brightnessTrackBar.Visible = true;
         }
 
         private void brightness_Off_Click(object sender, EventArgs e)
         {
-            brightness.Stop();
+            mainTimer.Stop();
             brightnessLabel.Visible = false;
             brightnessTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
 
-        private void contrast_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void contrast_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            BitmapFilter.Contrast(b, (sbyte)contrastTrackBar.Value);
+        //    BitmapFilter.Contrast(b, (sbyte)contrastTrackBar.Value);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void contrast_on_Click(object sender, EventArgs e)
         {
-            StartTimer(contrast);
+            currentMode = Mode.Contrast;
+            StartTimer(mainTimer);
             contrastLabel.Visible = true;
             contrastTrackBar.Visible = true;
         }
 
         private void contrast_off_Click(object sender, EventArgs e)
         {
-            contrast.Stop();
+            mainTimer.Stop();
             contrastLabel.Visible = false;
             contrastTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
 
-        private void color_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void color_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            BitmapFilter.Color(b,
-                colorRedTrackBar.Value,
-                colorGreenTrackBar.Value,
-                colorBlueTrackBar.Value);
+        //    BitmapFilter.Color(b,
+        //        colorRedTrackBar.Value,
+        //        colorGreenTrackBar.Value,
+        //        colorBlueTrackBar.Value);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void color_on_Click(object sender, EventArgs e)
         {
-            StartTimer(color);
+            currentMode = Mode.Color;
+            StartTimer(mainTimer);
             colorLabel.Visible = true;
             colorRedLabel.Visible = true;
             colorGreenLabel.Visible = true;
@@ -508,7 +519,7 @@ namespace ImageProcessing
 
         private void color_off_Click(object sender, EventArgs e)
         {
-            color.Stop();
+            mainTimer.Stop();
 
             colorLabel.Visible = false;
             colorRedLabel.Visible = false;
@@ -524,166 +535,171 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        private void smooth_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void smooth_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            //apply 10 passes for smoothness
-            for (int i = 0; i < smoothTrackBar.Value; i++)
-            {
-                BitmapFilter.Smooth(b, 1);
-            }
+        //    //apply 10 passes for smoothness
+        //    for (int i = 0; i < smoothTrackBar.Value; i++)
+        //    {
+        //        BitmapFilter.Smooth(b, 1);
+        //    }
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void smooth_on_Click(object sender, EventArgs e)
         {
-            StartTimer(smooth);
+            currentMode = Mode.Smooth;
+            StartTimer(mainTimer);
             smoothLabel.Visible = true;
             smoothTrackBar.Visible = true;
         }
 
         private void smooth_off_Click(object sender, EventArgs e)
         {
-            smooth.Stop();
+            mainTimer.Stop();
             smoothLabel.Visible = false;
             smoothTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
 
-        private void gaussian_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void gaussian_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            //apply 5 passes for gaussian blur
-            for (int i = 0; i < gaussTrackBar.Value; i++)
-            {
-                BitmapFilter.GaussianBlur(b, 1);
-            }
+        //    //apply 5 passes for gaussian blur
+        //    for (int i = 0; i < gaussTrackBar.Value; i++)
+        //    {
+        //        BitmapFilter.GaussianBlur(b, 1);
+        //    }
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void gauss_on_Click(object sender, EventArgs e)
         {
-            StartTimer(gaussian);
+            currentMode = Mode.Gauss;
+            StartTimer(mainTimer);
             gaussLabel.Visible = true;
             gaussTrackBar.Visible = true;
         }
 
         private void gauss_off_Click(object sender, EventArgs e)
         {
-            gaussian.Stop();
+            mainTimer.Stop();
             gaussLabel.Visible = false;
             gaussTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
 
-        private void sharpen_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void sharpen_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            //apply 3 passes for sharpen
-            for (int i = 0; i < sharpTrackBar.Value; i++)
-            {
-                BitmapFilter.Sharpen(b, 11);
-            }
+        //    //apply 3 passes for sharpen
+        //    for (int i = 0; i < sharpTrackBar.Value; i++)
+        //    {
+        //        BitmapFilter.Sharpen(b, 11);
+        //    }
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void sharp_on_Click(object sender, EventArgs e)
         {
-            StartTimer(sharpen);
+            currentMode = Mode.Sharpen;
+            StartTimer(mainTimer);
             sharpLabel.Visible = true;
             sharpTrackBar.Visible = true;
         }
 
         private void sharp_off_Click(object sender, EventArgs e)
         {
-            sharpen.Stop();
+            mainTimer.Stop();
             sharpLabel.Visible = false;
             sharpTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
 
-        private void mean_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void mean_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            //trackbar to be min 0, max 2
-            BitmapFilter.MeanRemoval(b, 9 + meanTrackBar.Value);
+        //    //trackbar to be min 0, max 2
+        //    BitmapFilter.MeanRemoval(b, 9 + meanTrackBar.Value);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void mean_on_Click(object sender, EventArgs e)
         {
-            StartTimer(mean);
+            currentMode = Mode.MeanRemoval;
+            StartTimer(mainTimer);
             meanLabel.Visible = true;
             meanTrackBar.Visible = true;
         }
 
         private void mean_off_Click(object sender, EventArgs e)
         {
-            mean.Stop();
+            mainTimer.Stop();
             meanLabel.Visible = false;
             meanTrackBar.Visible = false;
 
             pictureBox2.Image = null;
         }
 
-        private void emboss_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //private void emboss_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            BitmapFilter.EmbossLaplacian(b);
+        //    BitmapFilter.EmbossLaplacian(b);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void emboss_on_Click(object sender, EventArgs e)
         {
-            StartTimer(emboss);
+            currentMode = Mode.Emboss;
+            StartTimer(mainTimer);
         }
 
         private void emboss_off_Click(object sender, EventArgs e)
         {
-            emboss.Stop();
+            mainTimer.Stop();
 
             pictureBox2.Image = null;
         }
 
-        private static bool EdgeDetectHorzVert(Bitmap b)
+        private static bool EdgeDetectHorzVertz(Bitmap b)
         {
             ConvMatrix m = new ConvMatrix();
 
@@ -697,32 +713,34 @@ namespace ImageProcessing
             return BitmapFilter.Conv3x3(b, m);
         }
 
-        private void horzVert_Tick(object sender, EventArgs e)
+        //private void horzVert_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
+
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
+
+        //    EdgeDetectHorzVertz(b);
+
+        //    pictureBox2.Image = b;
+        //}
+
+        private void horzVertz_on_Click(object sender, EventArgs e)
         {
-            IDataObject data;
-            Image bmap;
-
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
-
-            EdgeDetectHorzVert(b);
-
-            pictureBox2.Image = b;
+            currentMode = Mode.HorzVertz;
+            StartTimer(mainTimer);
         }
 
-        private void oNToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void horzVertz_off_Click(object sender, EventArgs e)
         {
-            StartTimer(horzVert);
-        }
-
-        private void oFFToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            horzVert.Stop();
+            mainTimer.Stop();
 
             pictureBox2.Image = null;
         }
+
         private static bool EdgeDetectAll(Bitmap b)
         {
             ConvMatrix m = new ConvMatrix();
@@ -736,29 +754,30 @@ namespace ImageProcessing
             return BitmapFilter.Conv3x3(b, m);
         }
 
-        private void allDirection_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
+        //private void allDirection_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
 
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            EdgeDetectAll(b);
+        //    EdgeDetectAll(b);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void allDir_on_Click(object sender, EventArgs e)
         {
-            StartTimer(allDirection);
+            currentMode = Mode.AllDirection;
+            StartTimer(mainTimer);
         }
 
         private void allDir_off_Click(object sender, EventArgs e)
         {
-            allDirection.Stop();
+            mainTimer.Stop();
 
             pictureBox2.Image = null;
         }
@@ -777,85 +796,202 @@ namespace ImageProcessing
             return BitmapFilter.Conv3x3(b, m);
         }
 
-        private void lossy_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
+        //private void lossy_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
 
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            EdgeDetectLossy(b);
+        //    EdgeDetectLossy(b);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void lossy_on_Click(object sender, EventArgs e)
         {
-            StartTimer(lossy);
+            currentMode = Mode.Lossy;
+            StartTimer(mainTimer);
         }
 
         private void lossy_off_Click(object sender, EventArgs e)
         {
-            lossy.Stop();
+            mainTimer.Stop();
 
             pictureBox2.Image = null;
         }
 
-        private void horizontalOnly_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
+        //private void horizontalOnly_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
 
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            BitmapFilter.EdgeDetectHorizontal(b);
+        //    BitmapFilter.EdgeDetectHorizontal(b);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void horizontal_on_Click(object sender, EventArgs e)
         {
-            StartTimer(horizontalOnly);
+            currentMode = Mode.HorizontalOnly;
+            StartTimer(mainTimer);
         }
 
         private void horizontal_off_Click(object sender, EventArgs e)
         {
-            horizontalOnly.Stop();
+            mainTimer.Stop();
 
             pictureBox2.Image = null;
         }
 
-        private void verticalOnly_Tick(object sender, EventArgs e)
-        {
-            IDataObject data;
-            Image bmap;
+        //private void verticalOnly_Tick(object sender, EventArgs e)
+        //{
+        //    IDataObject data;
+        //    Image bmap;
 
-            myDevice[0].Sendmessage();
-            data = Clipboard.GetDataObject();
-            bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-            b = new Bitmap(bmap);
+        //    myDevice[0].Sendmessage();
+        //    data = Clipboard.GetDataObject();
+        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
+        //    b = new Bitmap(bmap);
 
-            BitmapFilter.EdgeDetectVertical(b);
+        //    BitmapFilter.EdgeDetectVertical(b);
 
-            pictureBox2.Image = b;
-        }
+        //    pictureBox2.Image = b;
+        //}
 
         private void vertical_on_Click(object sender, EventArgs e)
         {
-            StartTimer(verticalOnly);
+            currentMode = Mode.VerticalOnly;
+            StartTimer(mainTimer);
         }
 
         private void vertical_off_Click(object sender, EventArgs e)
         {
-            verticalOnly.Stop();
+            mainTimer.Stop();
 
             pictureBox2.Image = null;
+        }
+
+        private void mainTimer_Tick(object sender, EventArgs e)
+        {
+            Bitmap b = GetImage();
+
+            if (b == null)
+                return;
+
+            switch (currentMode)
+            {
+                case Mode.Grayscale:
+                    BitmapFilter.GrayScale(b);
+                    break;
+
+                case Mode.Gamma:
+                    BitmapFilter.Gamma(
+                        b,
+                        (double)gammaRedUpDown.Value,
+                        (double)gammaGreenUpDown.Value,
+                        (double)gammaBlueUpDown.Value);
+                    break;
+
+                case Mode.Invert:
+                    BitmapFilter.Invert(b);
+                    break;
+
+                case Mode.Brightness:
+                    BitmapFilter.Brightness(b, brightnessTrackBar.Value);
+                    break;
+
+                case Mode.Contrast:
+                    BitmapFilter.Contrast(b, (sbyte)contrastTrackBar.Value);
+                    break;
+
+                case Mode.Color:
+                    BitmapFilter.Color(
+                        b,
+                        colorRedTrackBar.Value,
+                        colorGreenTrackBar.Value,
+                        colorBlueTrackBar.Value);
+                    break;
+
+                case Mode.Smooth:
+                    //apply 10 passes for smoothness
+                    for (int i = 0; i < smoothTrackBar.Value; i++)
+                    {
+                        BitmapFilter.Smooth(b, 1);
+                    }
+                    break;
+
+                case Mode.Gauss:
+                    //apply 5 passes for gaussian blur
+                    for (int i = 0; i < gaussTrackBar.Value; i++)
+                    {
+                        BitmapFilter.GaussianBlur(b, 1);
+                    }
+                    break;
+
+                case Mode.Sharpen:
+                    //apply 3 passes for sharpen
+                    for (int i = 0; i < sharpTrackBar.Value; i++)
+                    {
+                        BitmapFilter.Sharpen(b, 11);
+                    }
+                    break;
+
+                case Mode.MeanRemoval:
+                    BitmapFilter.MeanRemoval(b, 9 + meanTrackBar.Value);
+                    break;
+
+                case Mode.Emboss:
+                    BitmapFilter.EmbossLaplacian(b);
+                    break;
+
+                case Mode.HorzVertz:
+                    EdgeDetectHorzVertz(b);
+                    break;
+
+                case Mode.AllDirection:
+                    EdgeDetectAll(b);
+                    break;
+
+                case Mode.Lossy:
+                    EdgeDetectLossy(b);
+                    break;
+
+                case Mode.HorizontalOnly:
+                    BitmapFilter.EdgeDetectHorizontal(b);
+                    break;
+
+                case Mode.VerticalOnly:
+                    BitmapFilter.EdgeDetectVertical(b);
+                    break;
+            }
+
+            pictureBox2.Image = b;
+        }
+
+        private Bitmap GetImage()
+        {
+            myDevice[0].Sendmessage();
+
+            IDataObject data = Clipboard.GetDataObject();
+
+            if (data == null || !data.GetDataPresent("System.Drawing.Bitmap"))
+                return null;
+
+            Image bmap = data.GetData("System.Drawing.Bitmap") as Image;
+
+            if (bmap == null)
+                return null;
+
+            return new Bitmap(bmap);
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

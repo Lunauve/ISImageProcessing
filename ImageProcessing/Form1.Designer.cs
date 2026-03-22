@@ -104,26 +104,12 @@
             this.gammaRedLabel = new System.Windows.Forms.Label();
             this.gammaGreenLabel = new System.Windows.Forms.Label();
             this.gammaBlueLabel = new System.Windows.Forms.Label();
-            this.brightnessTrackBar = new System.Windows.Forms.TrackBar();
-            this.brightnessLabel = new System.Windows.Forms.Label();
-            this.contrastTrackBar = new System.Windows.Forms.TrackBar();
-            this.contrastLabel = new System.Windows.Forms.Label();
-            this.smoothTrackBar = new System.Windows.Forms.TrackBar();
-            this.smoothLabel = new System.Windows.Forms.Label();
-            this.gaussTrackBar = new System.Windows.Forms.TrackBar();
-            this.gaussLabel = new System.Windows.Forms.Label();
-            this.sharpTrackBar = new System.Windows.Forms.TrackBar();
-            this.sharpLabel = new System.Windows.Forms.Label();
             this.colorRedTrackBar = new System.Windows.Forms.TrackBar();
             this.colorGreenTrackBar = new System.Windows.Forms.TrackBar();
             this.colorBlueTrackBar = new System.Windows.Forms.TrackBar();
-            this.colorRedLabel = new System.Windows.Forms.Label();
-            this.colorGreenLabel = new System.Windows.Forms.Label();
-            this.colorBlueLabel = new System.Windows.Forms.Label();
-            this.colorLabel = new System.Windows.Forms.Label();
-            this.meanTrackBar = new System.Windows.Forms.TrackBar();
-            this.meanLabel = new System.Windows.Forms.Label();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
+            this.mainLabel = new System.Windows.Forms.Label();
+            this.mainTrackBar = new System.Windows.Forms.TrackBar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -131,15 +117,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gammaRedUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaGreenUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaBlueUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contrastTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.smoothTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaussTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sharpTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorRedTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorGreenTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorBlueTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.meanTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -673,7 +654,7 @@
             // trackBar1
             // 
             this.trackBar1.LargeChange = 1;
-            this.trackBar1.Location = new System.Drawing.Point(34, 383);
+            this.trackBar1.Location = new System.Drawing.Point(162, 276);
             this.trackBar1.Margin = new System.Windows.Forms.Padding(2);
             this.trackBar1.Maximum = 50;
             this.trackBar1.Minimum = -50;
@@ -803,107 +784,10 @@
             this.gammaBlueLabel.TabIndex = 10;
             this.gammaBlueLabel.Text = "Blue";
             // 
-            // brightnessTrackBar
-            // 
-            this.brightnessTrackBar.LargeChange = 1;
-            this.brightnessTrackBar.Location = new System.Drawing.Point(34, 436);
-            this.brightnessTrackBar.Margin = new System.Windows.Forms.Padding(2);
-            this.brightnessTrackBar.Maximum = 255;
-            this.brightnessTrackBar.Minimum = -255;
-            this.brightnessTrackBar.Name = "brightnessTrackBar";
-            this.brightnessTrackBar.Size = new System.Drawing.Size(400, 45);
-            this.brightnessTrackBar.TabIndex = 11;
-            // 
-            // brightnessLabel
-            // 
-            this.brightnessLabel.AutoSize = true;
-            this.brightnessLabel.Location = new System.Drawing.Point(40, 421);
-            this.brightnessLabel.Name = "brightnessLabel";
-            this.brightnessLabel.Size = new System.Drawing.Size(56, 13);
-            this.brightnessLabel.TabIndex = 12;
-            this.brightnessLabel.Text = "Brightness";
-            // 
-            // contrastTrackBar
-            // 
-            this.contrastTrackBar.LargeChange = 1;
-            this.contrastTrackBar.Location = new System.Drawing.Point(34, 436);
-            this.contrastTrackBar.Margin = new System.Windows.Forms.Padding(2);
-            this.contrastTrackBar.Maximum = 100;
-            this.contrastTrackBar.Minimum = -100;
-            this.contrastTrackBar.Name = "contrastTrackBar";
-            this.contrastTrackBar.Size = new System.Drawing.Size(400, 45);
-            this.contrastTrackBar.TabIndex = 13;
-            // 
-            // contrastLabel
-            // 
-            this.contrastLabel.AutoSize = true;
-            this.contrastLabel.Location = new System.Drawing.Point(40, 421);
-            this.contrastLabel.Name = "contrastLabel";
-            this.contrastLabel.Size = new System.Drawing.Size(46, 13);
-            this.contrastLabel.TabIndex = 14;
-            this.contrastLabel.Text = "Contrast";
-            // 
-            // smoothTrackBar
-            // 
-            this.smoothTrackBar.LargeChange = 1;
-            this.smoothTrackBar.Location = new System.Drawing.Point(34, 430);
-            this.smoothTrackBar.Margin = new System.Windows.Forms.Padding(2);
-            this.smoothTrackBar.Maximum = 20;
-            this.smoothTrackBar.Name = "smoothTrackBar";
-            this.smoothTrackBar.Size = new System.Drawing.Size(400, 45);
-            this.smoothTrackBar.TabIndex = 15;
-            // 
-            // smoothLabel
-            // 
-            this.smoothLabel.AutoSize = true;
-            this.smoothLabel.Location = new System.Drawing.Point(40, 421);
-            this.smoothLabel.Name = "smoothLabel";
-            this.smoothLabel.Size = new System.Drawing.Size(65, 13);
-            this.smoothLabel.TabIndex = 16;
-            this.smoothLabel.Text = "Smoothness";
-            // 
-            // gaussTrackBar
-            // 
-            this.gaussTrackBar.LargeChange = 1;
-            this.gaussTrackBar.Location = new System.Drawing.Point(34, 434);
-            this.gaussTrackBar.Margin = new System.Windows.Forms.Padding(2);
-            this.gaussTrackBar.Maximum = 5;
-            this.gaussTrackBar.Name = "gaussTrackBar";
-            this.gaussTrackBar.Size = new System.Drawing.Size(400, 45);
-            this.gaussTrackBar.TabIndex = 17;
-            // 
-            // gaussLabel
-            // 
-            this.gaussLabel.AutoSize = true;
-            this.gaussLabel.Location = new System.Drawing.Point(40, 421);
-            this.gaussLabel.Name = "gaussLabel";
-            this.gaussLabel.Size = new System.Drawing.Size(72, 13);
-            this.gaussLabel.TabIndex = 18;
-            this.gaussLabel.Text = "Gaussian Blur";
-            // 
-            // sharpTrackBar
-            // 
-            this.sharpTrackBar.LargeChange = 1;
-            this.sharpTrackBar.Location = new System.Drawing.Point(34, 430);
-            this.sharpTrackBar.Margin = new System.Windows.Forms.Padding(2);
-            this.sharpTrackBar.Maximum = 3;
-            this.sharpTrackBar.Name = "sharpTrackBar";
-            this.sharpTrackBar.Size = new System.Drawing.Size(400, 45);
-            this.sharpTrackBar.TabIndex = 19;
-            // 
-            // sharpLabel
-            // 
-            this.sharpLabel.AutoSize = true;
-            this.sharpLabel.Location = new System.Drawing.Point(40, 421);
-            this.sharpLabel.Name = "sharpLabel";
-            this.sharpLabel.Size = new System.Drawing.Size(47, 13);
-            this.sharpLabel.TabIndex = 20;
-            this.sharpLabel.Text = "Sharpen";
-            // 
             // colorRedTrackBar
             // 
             this.colorRedTrackBar.LargeChange = 1;
-            this.colorRedTrackBar.Location = new System.Drawing.Point(34, 374);
+            this.colorRedTrackBar.Location = new System.Drawing.Point(162, 67);
             this.colorRedTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.colorRedTrackBar.Maximum = 255;
             this.colorRedTrackBar.Minimum = -255;
@@ -914,7 +798,7 @@
             // colorGreenTrackBar
             // 
             this.colorGreenTrackBar.LargeChange = 1;
-            this.colorGreenTrackBar.Location = new System.Drawing.Point(34, 404);
+            this.colorGreenTrackBar.Location = new System.Drawing.Point(162, 116);
             this.colorGreenTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.colorGreenTrackBar.Maximum = 255;
             this.colorGreenTrackBar.Minimum = -255;
@@ -925,7 +809,7 @@
             // colorBlueTrackBar
             // 
             this.colorBlueTrackBar.LargeChange = 1;
-            this.colorBlueTrackBar.Location = new System.Drawing.Point(34, 434);
+            this.colorBlueTrackBar.Location = new System.Drawing.Point(162, 165);
             this.colorBlueTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.colorBlueTrackBar.Maximum = 255;
             this.colorBlueTrackBar.Minimum = -255;
@@ -933,86 +817,37 @@
             this.colorBlueTrackBar.Size = new System.Drawing.Size(400, 45);
             this.colorBlueTrackBar.TabIndex = 23;
             // 
-            // colorRedLabel
-            // 
-            this.colorRedLabel.AutoSize = true;
-            this.colorRedLabel.Location = new System.Drawing.Point(2, 383);
-            this.colorRedLabel.Name = "colorRedLabel";
-            this.colorRedLabel.Size = new System.Drawing.Size(27, 13);
-            this.colorRedLabel.TabIndex = 24;
-            this.colorRedLabel.Text = "Red";
-            // 
-            // colorGreenLabel
-            // 
-            this.colorGreenLabel.AutoSize = true;
-            this.colorGreenLabel.Location = new System.Drawing.Point(2, 408);
-            this.colorGreenLabel.Name = "colorGreenLabel";
-            this.colorGreenLabel.Size = new System.Drawing.Size(36, 13);
-            this.colorGreenLabel.TabIndex = 25;
-            this.colorGreenLabel.Text = "Green";
-            // 
-            // colorBlueLabel
-            // 
-            this.colorBlueLabel.AutoSize = true;
-            this.colorBlueLabel.Location = new System.Drawing.Point(2, 436);
-            this.colorBlueLabel.Name = "colorBlueLabel";
-            this.colorBlueLabel.Size = new System.Drawing.Size(28, 13);
-            this.colorBlueLabel.TabIndex = 26;
-            this.colorBlueLabel.Text = "Blue";
-            // 
-            // colorLabel
-            // 
-            this.colorLabel.AutoSize = true;
-            this.colorLabel.Location = new System.Drawing.Point(439, 415);
-            this.colorLabel.Name = "colorLabel";
-            this.colorLabel.Size = new System.Drawing.Size(31, 13);
-            this.colorLabel.TabIndex = 27;
-            this.colorLabel.Text = "Color";
-            // 
-            // meanTrackBar
-            // 
-            this.meanTrackBar.LargeChange = 1;
-            this.meanTrackBar.Location = new System.Drawing.Point(34, 430);
-            this.meanTrackBar.Margin = new System.Windows.Forms.Padding(2);
-            this.meanTrackBar.Maximum = 2;
-            this.meanTrackBar.Name = "meanTrackBar";
-            this.meanTrackBar.Size = new System.Drawing.Size(400, 45);
-            this.meanTrackBar.TabIndex = 28;
-            // 
-            // meanLabel
-            // 
-            this.meanLabel.AutoSize = true;
-            this.meanLabel.Location = new System.Drawing.Point(40, 421);
-            this.meanLabel.Name = "meanLabel";
-            this.meanLabel.Size = new System.Drawing.Size(79, 13);
-            this.meanLabel.TabIndex = 29;
-            this.meanLabel.Text = "Mean Removal";
-            // 
             // mainTimer
             // 
             this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
+            // 
+            // mainLabel
+            // 
+            this.mainLabel.AutoSize = true;
+            this.mainLabel.Location = new System.Drawing.Point(334, 383);
+            this.mainLabel.Name = "mainLabel";
+            this.mainLabel.Size = new System.Drawing.Size(35, 13);
+            this.mainLabel.TabIndex = 29;
+            this.mainLabel.Text = "[label]";
+            // 
+            // mainTrackBar
+            // 
+            this.mainTrackBar.LargeChange = 1;
+            this.mainTrackBar.Location = new System.Drawing.Point(34, 398);
+            this.mainTrackBar.Margin = new System.Windows.Forms.Padding(2);
+            this.mainTrackBar.Maximum = 255;
+            this.mainTrackBar.Minimum = -255;
+            this.mainTrackBar.Name = "mainTrackBar";
+            this.mainTrackBar.Size = new System.Drawing.Size(640, 45);
+            this.mainTrackBar.TabIndex = 30;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 486);
-            this.Controls.Add(this.meanLabel);
-            this.Controls.Add(this.meanTrackBar);
-            this.Controls.Add(this.colorLabel);
-            this.Controls.Add(this.colorBlueLabel);
-            this.Controls.Add(this.colorGreenLabel);
-            this.Controls.Add(this.colorRedLabel);
-            this.Controls.Add(this.sharpLabel);
-            this.Controls.Add(this.sharpTrackBar);
-            this.Controls.Add(this.gaussLabel);
-            this.Controls.Add(this.gaussTrackBar);
-            this.Controls.Add(this.smoothLabel);
-            this.Controls.Add(this.smoothTrackBar);
-            this.Controls.Add(this.contrastLabel);
-            this.Controls.Add(this.contrastTrackBar);
-            this.Controls.Add(this.brightnessLabel);
-            this.Controls.Add(this.brightnessTrackBar);
+            this.Controls.Add(this.mainTrackBar);
+            this.Controls.Add(this.mainLabel);
             this.Controls.Add(this.gammaBlueLabel);
             this.Controls.Add(this.gammaGreenLabel);
             this.Controls.Add(this.gammaRedLabel);
@@ -1020,13 +855,13 @@
             this.Controls.Add(this.gammaGreenUpDown);
             this.Controls.Add(this.gammaLabel);
             this.Controls.Add(this.gammaRedUpDown);
-            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.colorRedTrackBar);
             this.Controls.Add(this.colorGreenTrackBar);
             this.Controls.Add(this.colorBlueTrackBar);
+            this.Controls.Add(this.trackBar1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -1041,15 +876,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gammaRedUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaGreenUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaBlueUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contrastTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.smoothTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaussTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sharpTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorRedTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorGreenTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorBlueTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.meanTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1099,24 +929,14 @@
         private System.Windows.Forms.Label gammaBlueLabel;
         private System.Windows.Forms.ToolStripMenuItem brightness_on;
         private System.Windows.Forms.ToolStripMenuItem brightness_off;
-        private System.Windows.Forms.TrackBar brightnessTrackBar;
-        private System.Windows.Forms.Label brightnessLabel;
-        private System.Windows.Forms.TrackBar contrastTrackBar;
         private System.Windows.Forms.ToolStripMenuItem contrast_on;
         private System.Windows.Forms.ToolStripMenuItem contrast_off;
-        private System.Windows.Forms.Label contrastLabel;
         private System.Windows.Forms.ToolStripMenuItem smooth_on;
         private System.Windows.Forms.ToolStripMenuItem smooth_off;
-        private System.Windows.Forms.TrackBar smoothTrackBar;
-        private System.Windows.Forms.Label smoothLabel;
-        private System.Windows.Forms.TrackBar gaussTrackBar;
         private System.Windows.Forms.ToolStripMenuItem gauss_on;
         private System.Windows.Forms.ToolStripMenuItem gauss_off;
-        private System.Windows.Forms.Label gaussLabel;
         private System.Windows.Forms.ToolStripMenuItem sharp_on;
         private System.Windows.Forms.ToolStripMenuItem sharp_off;
-        private System.Windows.Forms.TrackBar sharpTrackBar;
-        private System.Windows.Forms.Label sharpLabel;
         private System.Windows.Forms.ToolStripMenuItem meanRemovalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem embossLaplascianToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem horzVerticalToolStripMenuItem;
@@ -1130,16 +950,10 @@
         private System.Windows.Forms.TrackBar colorRedTrackBar;
         private System.Windows.Forms.TrackBar colorGreenTrackBar;
         private System.Windows.Forms.TrackBar colorBlueTrackBar;
-        private System.Windows.Forms.Label colorRedLabel;
-        private System.Windows.Forms.Label colorGreenLabel;
-        private System.Windows.Forms.Label colorBlueLabel;
-        private System.Windows.Forms.Label colorLabel;
         private System.Windows.Forms.ToolStripMenuItem mean_on;
         private System.Windows.Forms.ToolStripMenuItem mean_off;
         private System.Windows.Forms.ToolStripMenuItem emboss_on;
         private System.Windows.Forms.ToolStripMenuItem emboss_off;
-        private System.Windows.Forms.TrackBar meanTrackBar;
-        private System.Windows.Forms.Label meanLabel;
         private System.Windows.Forms.ToolStripMenuItem horzVertz_on;
         private System.Windows.Forms.ToolStripMenuItem horzVertz_off;
         private System.Windows.Forms.ToolStripMenuItem allDir_on;
@@ -1151,6 +965,8 @@
         private System.Windows.Forms.ToolStripMenuItem vertical_on;
         private System.Windows.Forms.ToolStripMenuItem vertical_off;
         private System.Windows.Forms.Timer mainTimer;
+        private System.Windows.Forms.Label mainLabel;
+        private System.Windows.Forms.TrackBar mainTrackBar;
     }
 }
 

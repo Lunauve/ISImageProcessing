@@ -254,7 +254,7 @@ namespace ImageProcessing
             };
         }
 
-        //temp
+        // initialize currentMode to Grayscale
         private Mode currentMode = Mode.Grayscale;
         private Dictionary<Mode, FilterConfig> configs;
 
@@ -283,7 +283,8 @@ namespace ImageProcessing
 
             pictureBox2.Image = result;
         }
-
+        
+        // for image
         private void greyScaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (source == null)
@@ -308,6 +309,7 @@ namespace ImageProcessing
             pictureBox2.Image = result;
         }
 
+        // for image
         private void inversionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (source == null)
@@ -330,16 +332,19 @@ namespace ImageProcessing
             pictureBox2.Image = result;
         }
 
+        // for image
         private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.ShowDialog();
         }
 
+        // for image
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             result.Save(saveFileDialog1.FileName);
         }
 
+        // for image
         private void brigthnesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int offset = -50;
@@ -356,6 +361,7 @@ namespace ImageProcessing
             pictureBox2.Image = result;
         }
 
+        // for image
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             int offset = trackBar1.Value;
@@ -378,6 +384,7 @@ namespace ImageProcessing
             pictureBox2.Image = result;
         }
 
+        // for image
         private void mirrorhorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             result = new Bitmap(source.Width, source.Height);
@@ -393,6 +400,7 @@ namespace ImageProcessing
             pictureBox2.Image = result;
         }
 
+        // for image
         private void mirrorverToolStripMenuItem_Click(object sender, EventArgs e)
         {
             result = new Bitmap(source.Width, source.Height);
@@ -414,10 +422,13 @@ namespace ImageProcessing
             mainTrackBar.Visible = false;
 
             //for gamma components
-            gammaLabel.Visible = false;
-            gammaRedLabel.Visible = false;
-            gammaGreenLabel.Visible = false;
-            gammaBlueLabel.Visible = false;
+            //gammaLabel.Visible = false;
+            redLabel.Visible = false;
+            greenLabel.Visible = false;
+            blueLabel.Visible = false;
+            colorRedValue.Visible = false;
+            colorGreenValue.Visible = false;
+            colorBlueValue.Visible = false;
             gammaRedUpDown.Visible = false;
             gammaGreenUpDown.Visible = false;
             gammaBlueUpDown.Visible = false;
@@ -478,70 +489,25 @@ namespace ImageProcessing
 
         private void StartTimer(Timer timerToStart)
         {
-            //greyscale.Stop();
-            //gamma.Stop();
-            //invert.Stop();
-            //brightness.Stop();
-            //contrast.Stop();
-            //color.Stop();
-            //smooth.Stop();
-            //gaussian.Stop();
-            //sharpen.Stop();
-            //mean.Stop();
-            //emboss.Stop();
-            //horzVert.Stop();
-            //allDirection.Stop();
-            //lossy.Stop();
-            //horizontalOnly.Stop();
-            //verticalOnly.Stop();
-
-            //for gamma components
-            gammaLabel.Visible = false;
-            gammaRedLabel.Visible = false;
-            gammaGreenLabel.Visible = false;
-            gammaBlueLabel.Visible = false;
+            redLabel.Visible = false;
+            greenLabel.Visible = false;
+            blueLabel.Visible = false;
             gammaRedUpDown.Visible = false;
             gammaGreenUpDown.Visible = false;
             gammaBlueUpDown.Visible = false;
+            colorRedValue.Visible = false;
+            colorGreenValue.Visible = false;
+            colorBlueValue.Visible = false;
             gammaRedUpDown.Value = gammaRedUpDown.Minimum;
             gammaGreenUpDown.Value = gammaGreenUpDown.Minimum;
             gammaBlueUpDown.Value = gammaBlueUpDown.Minimum;
 
-            //for brightness components
-            //brightnessLabel.Visible = false;
-            //brightnessTrackBar.Visible = false;
-
-            //for contrast components
-            //contrastLabel.Visible = false;
-            //contrastTrackBar.Visible = false;
-
-            //for smoothness components
-            //smoothLabel.Visible = false;
-            //smoothTrackBar.Visible = false;
-
-            //for gauss components
-            //gaussLabel.Visible = false;
-            //gaussTrackBar.Visible = false;
-
-            //for sharpen components
-            //sharpLabel.Visible = false;
-            //sharpTrackBar.Visible = false;
-
-            //for color components
-            //colorLabel.Visible = false;
-            //colorRedLabel.Visible = false;
-            //colorGreenLabel.Visible = false;
-            //colorBlueLabel.Visible = false;
             colorRedTrackBar.Visible = false;
             colorGreenTrackBar.Visible = false;
             colorBlueTrackBar.Visible = false;
             colorRedTrackBar.Value = 0;
             colorGreenTrackBar.Value = 0;
             colorBlueTrackBar.Value = 0;
-
-            //for mean removal components
-            //meanLabel.Visible = false;
-            //meanTrackBar.Visible = false;
 
             pictureBox2.Image = null;
 
@@ -555,21 +521,6 @@ namespace ImageProcessing
             timerToStart.Start();
         }
 
-        //private void grayscale_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-
-        //    BitmapFilter.GrayScale(b);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void oNGrey_Click(object sender, EventArgs e)
         {
             SetMode(Mode.Grayscale);
@@ -582,36 +533,13 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void gamma_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    BitmapFilter.Gamma(
-        //        b,
-        //        (double)gammaRedUpDown.Value,
-        //        (double)gammaGreenUpDown.Value,
-        //        (double)gammaBlueUpDown.Value);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void gamma_on_Click(object sender, EventArgs e)
         {
-            //currentMode = Mode.Gamma;
-
-            //StartTimer(mainTimer);
-
             SetMode(Mode.Gamma);
 
-            gammaLabel.Visible = true;
-            gammaRedLabel.Visible = true;
-            gammaGreenLabel.Visible = true;
-            gammaBlueLabel.Visible = true;
+            redLabel.Visible = true;
+            greenLabel.Visible = true;
+            blueLabel.Visible = true;
             gammaRedUpDown.Visible = true;
             gammaGreenUpDown.Visible = true;
             gammaBlueUpDown.Visible = true;
@@ -621,10 +549,9 @@ namespace ImageProcessing
         {
             mainTimer.Stop();
 
-            gammaLabel.Visible = false;
-            gammaRedLabel.Visible = false;
-            gammaGreenLabel.Visible = false;
-            gammaBlueLabel.Visible = false;
+            redLabel.Visible = false;
+            greenLabel.Visible = false;
+            blueLabel.Visible = false;
             gammaRedUpDown.Visible = false;
             gammaGreenUpDown.Visible = false;
             gammaBlueUpDown.Visible = false;
@@ -634,20 +561,6 @@ namespace ImageProcessing
 
             pictureBox2.Image = null;
         }
-
-        //private void invert_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    BitmapFilter.Invert(b);
-
-        //    pictureBox2.Image = b;
-        //}
 
         private void invert_on_Click(object sender, EventArgs e)
         {
@@ -661,31 +574,8 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void brightness_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    BitmapFilter.Brightness(b, brightnessTrackBar.Value);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void brightness_On_Click(object sender, EventArgs e)
         {
-            // brightness tb
-            // large change 1
-            // max 255
-            // min -255
-            // value 0
-            // currentMode = Mode.Brightness;
-            // StartTimer(mainTimer);
-            // mainLabel.Visible = true;
-            //mainTrackBar.Visible = true;
             SetMode(Mode.Brightness);
         }
 
@@ -698,32 +588,8 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void contrast_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    BitmapFilter.Contrast(b, (sbyte)contrastTrackBar.Value);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void contrast_on_Click(object sender, EventArgs e)
         {
-            // contrast tb
-            // large change 1
-            // max 100
-            // min -100
-            // value 0
-            //currentMode = Mode.Contrast;
-            //StartTimer(mainTimer);
-            //mainLabel.Visible = true;
-            //mainTrackBar.Visible = true;
-
             SetMode(Mode.Contrast);
         }
 
@@ -736,34 +602,20 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void color_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    BitmapFilter.Color(b,
-        //        colorRedTrackBar.Value,
-        //        colorGreenTrackBar.Value,
-        //        colorBlueTrackBar.Value);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void color_on_Click(object sender, EventArgs e)
         {
             currentMode = Mode.Color;
             StartTimer(mainTimer);
             mainLabel.Visible = true;
-            //colorRedLabel.Visible = true;
-            //colorGreenLabel.Visible = true;
-            //colorBlueLabel.Visible = true;
+            redLabel.Visible = true;
+            greenLabel.Visible = true;
+            blueLabel.Visible = true;
             colorRedTrackBar.Visible = true;
             colorGreenTrackBar.Visible = true;
             colorBlueTrackBar.Visible = true;
+            colorRedValue.Visible = true;
+            colorGreenValue.Visible = true;
+            colorBlueValue.Visible = true;
         }
 
         private void color_off_Click(object sender, EventArgs e)
@@ -771,9 +623,9 @@ namespace ImageProcessing
             mainTimer.Stop();
 
             mainLabel.Visible = false;
-            //colorRedLabel.Visible = false;
-            //colorGreenLabel.Visible = false;
-            //colorBlueLabel.Visible = false;
+            colorRedValue.Visible = false;
+            colorGreenValue.Visible = false;
+            colorBlueValue.Visible = false;
             colorRedTrackBar.Visible = false;
             colorGreenTrackBar.Visible = false;
             colorBlueTrackBar.Visible = false;
@@ -784,35 +636,8 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void smooth_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    //apply 10 passes for smoothness
-        //    for (int i = 0; i < smoothTrackBar.Value; i++)
-        //    {
-        //        BitmapFilter.Smooth(b, 1);
-        //    }
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void smooth_on_Click(object sender, EventArgs e)
         {
-            // smooth tb
-            // large change 1
-            // max 20
-            // min 0
-            // value 0
-            //currentMode = Mode.Smooth;
-            //StartTimer(mainTimer);
-            //mainLabel.Visible = true;
-            //mainTrackBar.Visible = true;
             SetMode(Mode.Smooth);
         }
 
@@ -825,36 +650,8 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void gaussian_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    //apply 5 passes for gaussian blur
-        //    for (int i = 0; i < gaussTrackBar.Value; i++)
-        //    {
-        //        BitmapFilter.GaussianBlur(b, 1);
-        //    }
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void gauss_on_Click(object sender, EventArgs e)
         {
-            // gauss tb
-            // large change 1
-            // max 5
-            // min 0
-            // value 0
-            //currentMode = Mode.Gauss;
-            //StartTimer(mainTimer);
-            //mainLabel.Visible = true;
-            //mainTrackBar.Visible = true;
-
             SetMode(Mode.Gauss);
         }
 
@@ -867,36 +664,8 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void sharpen_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    //apply 3 passes for sharpen
-        //    for (int i = 0; i < sharpTrackBar.Value; i++)
-        //    {
-        //        BitmapFilter.Sharpen(b, 11);
-        //    }
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void sharp_on_Click(object sender, EventArgs e)
         {
-            // sharp tb
-            // large change 1
-            // max 3
-            // min 0
-            // value 0
-            //currentMode = Mode.Sharpen;
-            //StartTimer(mainTimer);
-            //mainLabel.Visible = true;
-            //mainTrackBar.Visible = true;
-
             SetMode(Mode.Sharpen);
         }
 
@@ -909,43 +678,8 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void mean_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    //trackbar to be min 0, max 2
-        //    BitmapFilter.MeanRemoval(b, 9 + meanTrackBar.Value);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void mean_on_Click(object sender, EventArgs e)
         {
-            // mean tb
-            // large change 1
-            // max 2
-            // min 0
-            //// value 0
-            //currentMode = Mode.MeanRemoval;
-
-            //mainLabel.Text = "Mean Removal";
-
-            //mainTrackBar.Value = 0;
-            //mainTrackBar.Maximum = 2;
-            //mainTrackBar.Minimum = 0;
-            //mainTrackBar.LargeChange = 1;
-            //mainTrackBar.SmallChange = 1;
-
-            //mainLabel.Visible = true;
-            //mainTrackBar.Visible = true;
-
-            //StartTimer(mainTimer);
-
             SetMode(Mode.MeanRemoval);
         }
 
@@ -957,20 +691,6 @@ namespace ImageProcessing
 
             pictureBox2.Image = null;
         }
-
-        //private void emboss_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    BitmapFilter.EmbossLaplacian(b);
-
-        //    pictureBox2.Image = b;
-        //}
 
         private void emboss_on_Click(object sender, EventArgs e)
         {
@@ -998,25 +718,8 @@ namespace ImageProcessing
             return BitmapFilter.Conv3x3(b, m);
         }
 
-        //private void horzVert_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    EdgeDetectHorzVertz(b);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void horzVertz_on_Click(object sender, EventArgs e)
         {
-            //currentMode = Mode.HorzVertz;
-            //StartTimer(mainTimer);
             SetMode(Mode.HorzVertz);
         }
 
@@ -1040,26 +743,8 @@ namespace ImageProcessing
             return BitmapFilter.Conv3x3(b, m);
         }
 
-        //private void allDirection_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    EdgeDetectAll(b);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void allDir_on_Click(object sender, EventArgs e)
         {
-            //currentMode = Mode.AllDirection;
-            //StartTimer(mainTimer);
-
             SetMode(Mode.AllDirection);
         }
 
@@ -1084,26 +769,8 @@ namespace ImageProcessing
             return BitmapFilter.Conv3x3(b, m);
         }
 
-        //private void lossy_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    EdgeDetectLossy(b);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void lossy_on_Click(object sender, EventArgs e)
         {
-            //currentMode = Mode.Lossy;
-            //StartTimer(mainTimer);
-
             SetMode(Mode.Lossy);
         }
 
@@ -1114,26 +781,8 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void horizontalOnly_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    BitmapFilter.EdgeDetectHorizontal(b);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void horizontal_on_Click(object sender, EventArgs e)
         {
-            //currentMode = Mode.HorizontalOnly;
-            //StartTimer(mainTimer);
-
             SetMode(Mode.HorizontalOnly);
         }
 
@@ -1144,26 +793,8 @@ namespace ImageProcessing
             pictureBox2.Image = null;
         }
 
-        //private void verticalOnly_Tick(object sender, EventArgs e)
-        //{
-        //    IDataObject data;
-        //    Image bmap;
-
-        //    myDevice[0].Sendmessage();
-        //    data = Clipboard.GetDataObject();
-        //    bmap = (Image)(data.GetData("System.Drawing.Bitmap", true));
-        //    b = new Bitmap(bmap);
-
-        //    BitmapFilter.EdgeDetectVertical(b);
-
-        //    pictureBox2.Image = b;
-        //}
-
         private void vertical_on_Click(object sender, EventArgs e)
         {
-            //currentMode = Mode.VerticalOnly;
-            //StartTimer(mainTimer);
-
             SetMode(Mode.VerticalOnly);
         }
 
@@ -1309,7 +940,28 @@ namespace ImageProcessing
             mainTrackBar.SmallChange = config.SmallChange;
 
             mainLabel.Visible = config.Visible;
+            if (config.LabelText == "Gamma"
+                 || config.LabelText == "Color"
+                 )
+            {
+                mainLabel.Visible = true;
+            }
             mainTrackBar.Visible = config.Visible;
+        }
+
+        private void colorRedTrackBar_Scroll(object sender, EventArgs e)
+        {
+            colorRedValue.Text = colorRedTrackBar.Value.ToString();
+        }
+
+        private void colorGreenTrackBar_Scroll(object sender, EventArgs e)
+        {
+            colorGreenValue.Text = colorGreenTrackBar.Value.ToString();
+        }
+
+        private void colorBlueTrackBar_Scroll(object sender, EventArgs e)
+        {
+            colorBlueValue.Text = colorBlueTrackBar.Value.ToString();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

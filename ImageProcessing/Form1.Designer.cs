@@ -98,18 +98,20 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.gammaRedUpDown = new System.Windows.Forms.NumericUpDown();
-            this.gammaLabel = new System.Windows.Forms.Label();
             this.gammaGreenUpDown = new System.Windows.Forms.NumericUpDown();
             this.gammaBlueUpDown = new System.Windows.Forms.NumericUpDown();
-            this.gammaRedLabel = new System.Windows.Forms.Label();
-            this.gammaGreenLabel = new System.Windows.Forms.Label();
-            this.gammaBlueLabel = new System.Windows.Forms.Label();
+            this.redLabel = new System.Windows.Forms.Label();
+            this.greenLabel = new System.Windows.Forms.Label();
+            this.blueLabel = new System.Windows.Forms.Label();
             this.colorRedTrackBar = new System.Windows.Forms.TrackBar();
             this.colorGreenTrackBar = new System.Windows.Forms.TrackBar();
             this.colorBlueTrackBar = new System.Windows.Forms.TrackBar();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.mainLabel = new System.Windows.Forms.Label();
             this.mainTrackBar = new System.Windows.Forms.TrackBar();
+            this.colorRedValue = new System.Windows.Forms.Label();
+            this.colorGreenValue = new System.Windows.Forms.Label();
+            this.colorBlueValue = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -243,14 +245,14 @@
             // oNToolStripMenuItem
             // 
             this.oNToolStripMenuItem.Name = "oNToolStripMenuItem";
-            this.oNToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.oNToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oNToolStripMenuItem.Text = "ON";
             this.oNToolStripMenuItem.Click += new System.EventHandler(this.oNToolStripMenuItem_Click);
             // 
             // oFFToolStripMenuItem
             // 
             this.oFFToolStripMenuItem.Name = "oFFToolStripMenuItem";
-            this.oFFToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.oFFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oFFToolStripMenuItem.Text = "OFF";
             this.oFFToolStripMenuItem.Click += new System.EventHandler(this.oFFToolStripMenuItem_Click);
             // 
@@ -260,7 +262,7 @@
             this.grayscale_on,
             this.grayscale_off});
             this.greyToolStripMenuItem.Name = "greyToolStripMenuItem";
-            this.greyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.greyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.greyToolStripMenuItem.Text = "Greyscale";
             // 
             // grayscale_on
@@ -283,7 +285,7 @@
             this.gamma_on,
             this.gamma_off});
             this.gammaToolStripMenuItem.Name = "gammaToolStripMenuItem";
-            this.gammaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.gammaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gammaToolStripMenuItem.Text = "Gamma";
             // 
             // gamma_on
@@ -306,7 +308,7 @@
             this.invert_on,
             this.invert_off});
             this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
-            this.invertToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.invertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.invertToolStripMenuItem.Text = "Invert";
             // 
             // invert_on
@@ -329,7 +331,7 @@
             this.brightness_on,
             this.brightness_off});
             this.brightnessToolStripMenuItem.Name = "brightnessToolStripMenuItem";
-            this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.brightnessToolStripMenuItem.Text = "Brightness";
             // 
             // brightness_on
@@ -352,7 +354,7 @@
             this.contrast_on,
             this.contrast_off});
             this.contrastToolStripMenuItem.Name = "contrastToolStripMenuItem";
-            this.contrastToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.contrastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contrastToolStripMenuItem.Text = "Contrast";
             // 
             // contrast_on
@@ -375,7 +377,7 @@
             this.color_on,
             this.color_off});
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.colorToolStripMenuItem.Text = "Color";
             // 
             // color_on
@@ -398,7 +400,7 @@
             this.smooth_on,
             this.smooth_off});
             this.smoothToolStripMenuItem.Name = "smoothToolStripMenuItem";
-            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smoothToolStripMenuItem.Text = "Smooth";
             // 
             // smooth_on
@@ -421,7 +423,7 @@
             this.gauss_on,
             this.gauss_off});
             this.gaussianBlurToolStripMenuItem.Name = "gaussianBlurToolStripMenuItem";
-            this.gaussianBlurToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.gaussianBlurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gaussianBlurToolStripMenuItem.Text = "Gaussian Blur";
             // 
             // gauss_on
@@ -444,7 +446,7 @@
             this.sharp_on,
             this.sharp_off});
             this.sharpenToolStripMenuItem.Name = "sharpenToolStripMenuItem";
-            this.sharpenToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.sharpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sharpenToolStripMenuItem.Text = "Sharpen";
             // 
             // sharp_on
@@ -467,7 +469,7 @@
             this.mean_on,
             this.mean_off});
             this.meanRemovalToolStripMenuItem.Name = "meanRemovalToolStripMenuItem";
-            this.meanRemovalToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.meanRemovalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.meanRemovalToolStripMenuItem.Text = "Mean Removal";
             // 
             // mean_on
@@ -490,7 +492,7 @@
             this.emboss_on,
             this.emboss_off});
             this.embossLaplascianToolStripMenuItem.Name = "embossLaplascianToolStripMenuItem";
-            this.embossLaplascianToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.embossLaplascianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.embossLaplascianToolStripMenuItem.Text = "Emboss Laplascian";
             // 
             // emboss_on
@@ -513,7 +515,7 @@
             this.horzVertz_on,
             this.horzVertz_off});
             this.horzVerticalToolStripMenuItem.Name = "horzVerticalToolStripMenuItem";
-            this.horzVerticalToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.horzVerticalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.horzVerticalToolStripMenuItem.Text = "Horz/Vertical";
             // 
             // horzVertz_on
@@ -536,7 +538,7 @@
             this.allDir_on,
             this.allDir_off});
             this.allDirectionToolStripMenuItem.Name = "allDirectionToolStripMenuItem";
-            this.allDirectionToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.allDirectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.allDirectionToolStripMenuItem.Text = "All Direction";
             // 
             // allDir_on
@@ -559,7 +561,7 @@
             this.lossy_on,
             this.lossy_off});
             this.lossyToolStripMenuItem.Name = "lossyToolStripMenuItem";
-            this.lossyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.lossyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lossyToolStripMenuItem.Text = "Lossy";
             // 
             // lossy_on
@@ -582,7 +584,7 @@
             this.horizontal_on,
             this.horizontal_off});
             this.horizontalOnlyToolStripMenuItem.Name = "horizontalOnlyToolStripMenuItem";
-            this.horizontalOnlyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.horizontalOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.horizontalOnlyToolStripMenuItem.Text = "Horizontal Only";
             // 
             // horizontal_on
@@ -605,7 +607,7 @@
             this.vertical_on,
             this.vertical_off});
             this.verticalOnlyToolStripMenuItem.Name = "verticalOnlyToolStripMenuItem";
-            this.verticalOnlyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.verticalOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verticalOnlyToolStripMenuItem.Text = "Vertical Only";
             // 
             // vertical_on
@@ -654,7 +656,7 @@
             // trackBar1
             // 
             this.trackBar1.LargeChange = 1;
-            this.trackBar1.Location = new System.Drawing.Point(162, 276);
+            this.trackBar1.Location = new System.Drawing.Point(145, 398);
             this.trackBar1.Margin = new System.Windows.Forms.Padding(2);
             this.trackBar1.Maximum = 50;
             this.trackBar1.Minimum = -50;
@@ -672,7 +674,7 @@
             0,
             0,
             65536});
-            this.gammaRedUpDown.Location = new System.Drawing.Point(622, 408);
+            this.gammaRedUpDown.Location = new System.Drawing.Point(162, 409);
             this.gammaRedUpDown.Maximum = new decimal(new int[] {
             5,
             0,
@@ -692,15 +694,6 @@
             0,
             65536});
             // 
-            // gammaLabel
-            // 
-            this.gammaLabel.AutoSize = true;
-            this.gammaLabel.Location = new System.Drawing.Point(619, 383);
-            this.gammaLabel.Name = "gammaLabel";
-            this.gammaLabel.Size = new System.Drawing.Size(43, 13);
-            this.gammaLabel.TabIndex = 5;
-            this.gammaLabel.Text = "Gamma";
-            // 
             // gammaGreenUpDown
             // 
             this.gammaGreenUpDown.DecimalPlaces = 1;
@@ -709,7 +702,7 @@
             0,
             0,
             65536});
-            this.gammaGreenUpDown.Location = new System.Drawing.Point(622, 434);
+            this.gammaGreenUpDown.Location = new System.Drawing.Point(327, 409);
             this.gammaGreenUpDown.Maximum = new decimal(new int[] {
             5,
             0,
@@ -737,7 +730,7 @@
             0,
             0,
             65536});
-            this.gammaBlueUpDown.Location = new System.Drawing.Point(622, 460);
+            this.gammaBlueUpDown.Location = new System.Drawing.Point(493, 409);
             this.gammaBlueUpDown.Maximum = new decimal(new int[] {
             5,
             0,
@@ -757,65 +750,68 @@
             0,
             65536});
             // 
-            // gammaRedLabel
+            // redLabel
             // 
-            this.gammaRedLabel.AutoSize = true;
-            this.gammaRedLabel.Location = new System.Drawing.Point(573, 410);
-            this.gammaRedLabel.Name = "gammaRedLabel";
-            this.gammaRedLabel.Size = new System.Drawing.Size(27, 13);
-            this.gammaRedLabel.TabIndex = 8;
-            this.gammaRedLabel.Text = "Red";
+            this.redLabel.AutoSize = true;
+            this.redLabel.Location = new System.Drawing.Point(170, 432);
+            this.redLabel.Name = "redLabel";
+            this.redLabel.Size = new System.Drawing.Size(27, 13);
+            this.redLabel.TabIndex = 8;
+            this.redLabel.Text = "Red";
             // 
-            // gammaGreenLabel
+            // greenLabel
             // 
-            this.gammaGreenLabel.AutoSize = true;
-            this.gammaGreenLabel.Location = new System.Drawing.Point(573, 436);
-            this.gammaGreenLabel.Name = "gammaGreenLabel";
-            this.gammaGreenLabel.Size = new System.Drawing.Size(36, 13);
-            this.gammaGreenLabel.TabIndex = 9;
-            this.gammaGreenLabel.Text = "Green";
+            this.greenLabel.AutoSize = true;
+            this.greenLabel.Location = new System.Drawing.Point(334, 432);
+            this.greenLabel.Name = "greenLabel";
+            this.greenLabel.Size = new System.Drawing.Size(36, 13);
+            this.greenLabel.TabIndex = 9;
+            this.greenLabel.Text = "Green";
             // 
-            // gammaBlueLabel
+            // blueLabel
             // 
-            this.gammaBlueLabel.AutoSize = true;
-            this.gammaBlueLabel.Location = new System.Drawing.Point(573, 462);
-            this.gammaBlueLabel.Name = "gammaBlueLabel";
-            this.gammaBlueLabel.Size = new System.Drawing.Size(28, 13);
-            this.gammaBlueLabel.TabIndex = 10;
-            this.gammaBlueLabel.Text = "Blue";
+            this.blueLabel.AutoSize = true;
+            this.blueLabel.Location = new System.Drawing.Point(504, 432);
+            this.blueLabel.Name = "blueLabel";
+            this.blueLabel.Size = new System.Drawing.Size(28, 13);
+            this.blueLabel.TabIndex = 10;
+            this.blueLabel.Text = "Blue";
             // 
             // colorRedTrackBar
             // 
             this.colorRedTrackBar.LargeChange = 1;
-            this.colorRedTrackBar.Location = new System.Drawing.Point(162, 67);
+            this.colorRedTrackBar.Location = new System.Drawing.Point(119, 398);
             this.colorRedTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.colorRedTrackBar.Maximum = 255;
             this.colorRedTrackBar.Minimum = -255;
             this.colorRedTrackBar.Name = "colorRedTrackBar";
-            this.colorRedTrackBar.Size = new System.Drawing.Size(400, 45);
+            this.colorRedTrackBar.Size = new System.Drawing.Size(129, 45);
             this.colorRedTrackBar.TabIndex = 21;
+            this.colorRedTrackBar.Scroll += new System.EventHandler(this.colorRedTrackBar_Scroll);
             // 
             // colorGreenTrackBar
             // 
             this.colorGreenTrackBar.LargeChange = 1;
-            this.colorGreenTrackBar.Location = new System.Drawing.Point(162, 116);
+            this.colorGreenTrackBar.Location = new System.Drawing.Point(290, 400);
             this.colorGreenTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.colorGreenTrackBar.Maximum = 255;
             this.colorGreenTrackBar.Minimum = -255;
             this.colorGreenTrackBar.Name = "colorGreenTrackBar";
-            this.colorGreenTrackBar.Size = new System.Drawing.Size(400, 45);
+            this.colorGreenTrackBar.Size = new System.Drawing.Size(128, 45);
             this.colorGreenTrackBar.TabIndex = 22;
+            this.colorGreenTrackBar.Scroll += new System.EventHandler(this.colorGreenTrackBar_Scroll);
             // 
             // colorBlueTrackBar
             // 
             this.colorBlueTrackBar.LargeChange = 1;
-            this.colorBlueTrackBar.Location = new System.Drawing.Point(162, 165);
+            this.colorBlueTrackBar.Location = new System.Drawing.Point(447, 398);
             this.colorBlueTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.colorBlueTrackBar.Maximum = 255;
             this.colorBlueTrackBar.Minimum = -255;
             this.colorBlueTrackBar.Name = "colorBlueTrackBar";
-            this.colorBlueTrackBar.Size = new System.Drawing.Size(400, 45);
+            this.colorBlueTrackBar.Size = new System.Drawing.Size(129, 45);
             this.colorBlueTrackBar.TabIndex = 23;
+            this.colorBlueTrackBar.Scroll += new System.EventHandler(this.colorBlueTrackBar_Scroll);
             // 
             // mainTimer
             // 
@@ -841,19 +837,47 @@
             this.mainTrackBar.Size = new System.Drawing.Size(640, 45);
             this.mainTrackBar.TabIndex = 30;
             // 
+            // colorRedValue
+            // 
+            this.colorRedValue.AutoSize = true;
+            this.colorRedValue.Location = new System.Drawing.Point(170, 445);
+            this.colorRedValue.Name = "colorRedValue";
+            this.colorRedValue.Size = new System.Drawing.Size(13, 13);
+            this.colorRedValue.TabIndex = 31;
+            this.colorRedValue.Text = "0";
+            // 
+            // colorGreenValue
+            // 
+            this.colorGreenValue.AutoSize = true;
+            this.colorGreenValue.Location = new System.Drawing.Point(334, 445);
+            this.colorGreenValue.Name = "colorGreenValue";
+            this.colorGreenValue.Size = new System.Drawing.Size(13, 13);
+            this.colorGreenValue.TabIndex = 32;
+            this.colorGreenValue.Text = "0";
+            // 
+            // colorBlueValue
+            // 
+            this.colorBlueValue.AutoSize = true;
+            this.colorBlueValue.Location = new System.Drawing.Point(504, 445);
+            this.colorBlueValue.Name = "colorBlueValue";
+            this.colorBlueValue.Size = new System.Drawing.Size(13, 13);
+            this.colorBlueValue.TabIndex = 33;
+            this.colorBlueValue.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 486);
-            this.Controls.Add(this.mainTrackBar);
+            this.Controls.Add(this.colorBlueValue);
+            this.Controls.Add(this.colorGreenValue);
+            this.Controls.Add(this.colorRedValue);
             this.Controls.Add(this.mainLabel);
-            this.Controls.Add(this.gammaBlueLabel);
-            this.Controls.Add(this.gammaGreenLabel);
-            this.Controls.Add(this.gammaRedLabel);
+            this.Controls.Add(this.blueLabel);
+            this.Controls.Add(this.greenLabel);
+            this.Controls.Add(this.redLabel);
             this.Controls.Add(this.gammaBlueUpDown);
             this.Controls.Add(this.gammaGreenUpDown);
-            this.Controls.Add(this.gammaLabel);
             this.Controls.Add(this.gammaRedUpDown);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -862,6 +886,7 @@
             this.Controls.Add(this.colorGreenTrackBar);
             this.Controls.Add(this.colorBlueTrackBar);
             this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.mainTrackBar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -921,12 +946,11 @@
         private System.Windows.Forms.ToolStripMenuItem invert_on;
         private System.Windows.Forms.ToolStripMenuItem invert_off;
         private System.Windows.Forms.NumericUpDown gammaRedUpDown;
-        private System.Windows.Forms.Label gammaLabel;
         private System.Windows.Forms.NumericUpDown gammaGreenUpDown;
         private System.Windows.Forms.NumericUpDown gammaBlueUpDown;
-        private System.Windows.Forms.Label gammaRedLabel;
-        private System.Windows.Forms.Label gammaGreenLabel;
-        private System.Windows.Forms.Label gammaBlueLabel;
+        private System.Windows.Forms.Label redLabel;
+        private System.Windows.Forms.Label greenLabel;
+        private System.Windows.Forms.Label blueLabel;
         private System.Windows.Forms.ToolStripMenuItem brightness_on;
         private System.Windows.Forms.ToolStripMenuItem brightness_off;
         private System.Windows.Forms.ToolStripMenuItem contrast_on;
@@ -967,6 +991,9 @@
         private System.Windows.Forms.Timer mainTimer;
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.TrackBar mainTrackBar;
+        private System.Windows.Forms.Label colorRedValue;
+        private System.Windows.Forms.Label colorGreenValue;
+        private System.Windows.Forms.Label colorBlueValue;
     }
 }
 

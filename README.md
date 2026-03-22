@@ -1,18 +1,19 @@
 # Image Processing Simulation
 
-This project is a simulation of image processing techniques in C# WinForms.  
+This project is an image processing application developed in C# WinForms that implements convolution-based filters and image enhancement techniques. 
 
 **Original Work:** This project uses the **CITLibFilters** library originally developed by **DR. CHRIS JORDAN ALIAC**.  
+
 **Enhancements:** For this assignment, I, **ALYSSA JOYCE TAN**, have implemented and extended the following convolution-based image processing functions:  
 
-## Features
+### Features
 
 - **Grayscale:**
-- **Gamma:**
-- **Invert:**  
-- **Brightness:**
-- **Contrast:**
-- **Color Adjustment:**
+- **Gamma**
+- **Invert**  
+- **Brightness**
+- **Contrast**
+- **Color Adjustment**
 
 ### Convolution Filters
 
@@ -30,11 +31,13 @@ This project is a simulation of image processing techniques in C# WinForms.
 - **HorizontalOnly**  
 - **VerticalOnly**
 
+## 
+
 ![Image Processing Application](./gifs/image_processing.gif)
 
 ## Convolution Improvement
 
-As part of the assignment, I implemented additional edge detection filters to enhance the convolution capabilities:
+As part of the assignment, I've implemented additional edge detection filters to enhance the convolution capabilities:
 
 - **EdgeDetectAll**  
 - **EdgeDetectLossy**  

@@ -3,12 +3,11 @@
 This project is an image processing application developed in C# WinForms that implements convolution-based filters and image enhancement techniques. 
 
 **Original Work:** This project uses the **CITLibFilters** library originally developed by **DR. CHRIS JORDAN ALIAC**.  
-
 **Enhancements:** For this assignment, I, **ALYSSA JOYCE TAN**, have implemented and extended the following convolution-based image processing functions:  
 
 ### Features
 
-- **Grayscale:**
+- **Grayscale**
 - **Gamma**
 - **Invert**  
 - **Brightness**

@@ -114,6 +114,8 @@
             this.colorBlueValue = new System.Windows.Forms.Label();
             this.minValueText = new System.Windows.Forms.Label();
             this.maxValueText = new System.Windows.Forms.Label();
+            this.createdLabel = new System.Windows.Forms.Label();
+            this.resultBoxNormal = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -247,14 +249,14 @@
             // oNToolStripMenuItem
             // 
             this.oNToolStripMenuItem.Name = "oNToolStripMenuItem";
-            this.oNToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oNToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.oNToolStripMenuItem.Text = "ON";
             this.oNToolStripMenuItem.Click += new System.EventHandler(this.oNToolStripMenuItem_Click);
             // 
             // oFFToolStripMenuItem
             // 
             this.oFFToolStripMenuItem.Name = "oFFToolStripMenuItem";
-            this.oFFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oFFToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.oFFToolStripMenuItem.Text = "OFF";
             this.oFFToolStripMenuItem.Click += new System.EventHandler(this.oFFToolStripMenuItem_Click);
             // 
@@ -264,7 +266,7 @@
             this.grayscale_on,
             this.grayscale_off});
             this.greyToolStripMenuItem.Name = "greyToolStripMenuItem";
-            this.greyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.greyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.greyToolStripMenuItem.Text = "Greyscale";
             // 
             // grayscale_on
@@ -287,7 +289,7 @@
             this.gamma_on,
             this.gamma_off});
             this.gammaToolStripMenuItem.Name = "gammaToolStripMenuItem";
-            this.gammaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gammaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.gammaToolStripMenuItem.Text = "Gamma";
             // 
             // gamma_on
@@ -310,7 +312,7 @@
             this.invert_on,
             this.invert_off});
             this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
-            this.invertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.invertToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.invertToolStripMenuItem.Text = "Invert";
             // 
             // invert_on
@@ -333,7 +335,7 @@
             this.brightness_on,
             this.brightness_off});
             this.brightnessToolStripMenuItem.Name = "brightnessToolStripMenuItem";
-            this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.brightnessToolStripMenuItem.Text = "Brightness";
             // 
             // brightness_on
@@ -356,7 +358,7 @@
             this.contrast_on,
             this.contrast_off});
             this.contrastToolStripMenuItem.Name = "contrastToolStripMenuItem";
-            this.contrastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.contrastToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.contrastToolStripMenuItem.Text = "Contrast";
             // 
             // contrast_on
@@ -379,7 +381,7 @@
             this.color_on,
             this.color_off});
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.colorToolStripMenuItem.Text = "Color";
             // 
             // color_on
@@ -402,7 +404,7 @@
             this.smooth_on,
             this.smooth_off});
             this.smoothToolStripMenuItem.Name = "smoothToolStripMenuItem";
-            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.smoothToolStripMenuItem.Text = "Smooth";
             // 
             // smooth_on
@@ -425,7 +427,7 @@
             this.gauss_on,
             this.gauss_off});
             this.gaussianBlurToolStripMenuItem.Name = "gaussianBlurToolStripMenuItem";
-            this.gaussianBlurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gaussianBlurToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.gaussianBlurToolStripMenuItem.Text = "Gaussian Blur";
             // 
             // gauss_on
@@ -448,7 +450,7 @@
             this.sharp_on,
             this.sharp_off});
             this.sharpenToolStripMenuItem.Name = "sharpenToolStripMenuItem";
-            this.sharpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sharpenToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.sharpenToolStripMenuItem.Text = "Sharpen";
             // 
             // sharp_on
@@ -471,7 +473,7 @@
             this.mean_on,
             this.mean_off});
             this.meanRemovalToolStripMenuItem.Name = "meanRemovalToolStripMenuItem";
-            this.meanRemovalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.meanRemovalToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.meanRemovalToolStripMenuItem.Text = "Mean Removal";
             // 
             // mean_on
@@ -494,7 +496,7 @@
             this.emboss_on,
             this.emboss_off});
             this.embossLaplascianToolStripMenuItem.Name = "embossLaplascianToolStripMenuItem";
-            this.embossLaplascianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.embossLaplascianToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.embossLaplascianToolStripMenuItem.Text = "Emboss Laplascian";
             // 
             // emboss_on
@@ -517,7 +519,7 @@
             this.horzVertz_on,
             this.horzVertz_off});
             this.horzVerticalToolStripMenuItem.Name = "horzVerticalToolStripMenuItem";
-            this.horzVerticalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.horzVerticalToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.horzVerticalToolStripMenuItem.Text = "Horz/Vertical";
             // 
             // horzVertz_on
@@ -540,7 +542,7 @@
             this.allDir_on,
             this.allDir_off});
             this.allDirectionToolStripMenuItem.Name = "allDirectionToolStripMenuItem";
-            this.allDirectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allDirectionToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.allDirectionToolStripMenuItem.Text = "All Direction";
             // 
             // allDir_on
@@ -563,7 +565,7 @@
             this.lossy_on,
             this.lossy_off});
             this.lossyToolStripMenuItem.Name = "lossyToolStripMenuItem";
-            this.lossyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lossyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.lossyToolStripMenuItem.Text = "Lossy";
             // 
             // lossy_on
@@ -586,7 +588,7 @@
             this.horizontal_on,
             this.horizontal_off});
             this.horizontalOnlyToolStripMenuItem.Name = "horizontalOnlyToolStripMenuItem";
-            this.horizontalOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.horizontalOnlyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.horizontalOnlyToolStripMenuItem.Text = "Horizontal Only";
             // 
             // horizontal_on
@@ -609,7 +611,7 @@
             this.vertical_on,
             this.vertical_off});
             this.verticalOnlyToolStripMenuItem.Name = "verticalOnlyToolStripMenuItem";
-            this.verticalOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verticalOnlyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.verticalOnlyToolStripMenuItem.Text = "Vertical Only";
             // 
             // vertical_on
@@ -760,6 +762,7 @@
             this.redLabel.Size = new System.Drawing.Size(27, 13);
             this.redLabel.TabIndex = 8;
             this.redLabel.Text = "Red";
+            this.redLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // greenLabel
             // 
@@ -769,6 +772,7 @@
             this.greenLabel.Size = new System.Drawing.Size(36, 13);
             this.greenLabel.TabIndex = 9;
             this.greenLabel.Text = "Green";
+            this.greenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // blueLabel
             // 
@@ -778,6 +782,7 @@
             this.blueLabel.Size = new System.Drawing.Size(28, 13);
             this.blueLabel.TabIndex = 10;
             this.blueLabel.Text = "Blue";
+            this.blueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // colorRedTrackBar
             // 
@@ -822,11 +827,12 @@
             // mainLabel
             // 
             this.mainLabel.AutoSize = true;
-            this.mainLabel.Location = new System.Drawing.Point(334, 383);
+            this.mainLabel.Location = new System.Drawing.Point(337, 382);
             this.mainLabel.Name = "mainLabel";
             this.mainLabel.Size = new System.Drawing.Size(35, 13);
             this.mainLabel.TabIndex = 29;
             this.mainLabel.Text = "[label]";
+            this.mainLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mainTrackBar
             // 
@@ -837,42 +843,47 @@
             this.mainTrackBar.Minimum = -255;
             this.mainTrackBar.Name = "mainTrackBar";
             this.mainTrackBar.Size = new System.Drawing.Size(640, 45);
-            this.mainTrackBar.TabIndex = 30;            // 
+            this.mainTrackBar.TabIndex = 30;
+            // 
             // colorRedValue
             // 
             this.colorRedValue.AutoSize = true;
-            this.colorRedValue.Location = new System.Drawing.Point(170, 445);
+            this.colorRedValue.Location = new System.Drawing.Point(176, 445);
             this.colorRedValue.Name = "colorRedValue";
             this.colorRedValue.Size = new System.Drawing.Size(13, 13);
             this.colorRedValue.TabIndex = 31;
             this.colorRedValue.Text = "0";
+            this.colorRedValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // colorGreenValue
             // 
             this.colorGreenValue.AutoSize = true;
-            this.colorGreenValue.Location = new System.Drawing.Point(334, 445);
+            this.colorGreenValue.Location = new System.Drawing.Point(345, 445);
             this.colorGreenValue.Name = "colorGreenValue";
             this.colorGreenValue.Size = new System.Drawing.Size(13, 13);
             this.colorGreenValue.TabIndex = 32;
             this.colorGreenValue.Text = "0";
+            this.colorGreenValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // colorBlueValue
             // 
             this.colorBlueValue.AutoSize = true;
-            this.colorBlueValue.Location = new System.Drawing.Point(504, 445);
+            this.colorBlueValue.Location = new System.Drawing.Point(510, 445);
             this.colorBlueValue.Name = "colorBlueValue";
             this.colorBlueValue.Size = new System.Drawing.Size(13, 13);
             this.colorBlueValue.TabIndex = 33;
             this.colorBlueValue.Text = "0";
+            this.colorBlueValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // minValueText
             // 
             this.minValueText.AutoSize = true;
-            this.minValueText.Location = new System.Drawing.Point(31, 430);
+            this.minValueText.Location = new System.Drawing.Point(32, 430);
             this.minValueText.Name = "minValueText";
             this.minValueText.Size = new System.Drawing.Size(13, 13);
             this.minValueText.TabIndex = 34;
             this.minValueText.Text = "0";
+            this.minValueText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // maxValueText
             // 
@@ -882,12 +893,27 @@
             this.maxValueText.Size = new System.Drawing.Size(13, 13);
             this.maxValueText.TabIndex = 35;
             this.maxValueText.Text = "0";
+            this.maxValueText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // createdLabel
+            // 
+            this.createdLabel.AutoSize = true;
+            this.createdLabel.Location = new System.Drawing.Point(468, 28);
+            this.createdLabel.Name = "createdLabel";
+            this.createdLabel.Size = new System.Drawing.Size(233, 13);
+            this.createdLabel.TabIndex = 36;
+            this.createdLabel.Text = "A.J.T   |   CITLIBFilters Image Processing Library";
+            // 
+            // resultBoxNormal
+            // 
+            this.resultBoxNormal.Tick += new System.EventHandler(this.resultBoxNormal_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 486);
+            this.ClientSize = new System.Drawing.Size(704, 463);
+            this.Controls.Add(this.createdLabel);
             this.Controls.Add(this.maxValueText);
             this.Controls.Add(this.minValueText);
             this.Controls.Add(this.colorBlueValue);
@@ -1017,6 +1043,8 @@
         private System.Windows.Forms.Label colorBlueValue;
         private System.Windows.Forms.Label minValueText;
         private System.Windows.Forms.Label maxValueText;
+        private System.Windows.Forms.Label createdLabel;
+        private System.Windows.Forms.Timer resultBoxNormal;
     }
 }
 

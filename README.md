@@ -1,4 +1,4 @@
-# Image Processing Simulation
+# Image Processing
 
 This project is an image processing application developed in C# WinForms that implements convolution-based filters and image enhancement techniques. 
 
@@ -31,7 +31,6 @@ This project is an image processing application developed in C# WinForms that im
 - **HorizontalOnly**  
 - **VerticalOnly**
 
-## 
 
 ![Image Processing Application](./gifs/image_processing.gif)
 

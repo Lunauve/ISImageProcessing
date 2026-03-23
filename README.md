@@ -31,7 +31,7 @@ This project is an image processing application developed in C# WinForms that im
 - **VerticalOnly**
 
 
-![Image Processing Application](./gifs/image_processing.gif)
+![Image Processing Application](./gifs/image_processing_2.gif)
 
 ## Convolution Improvement
 
